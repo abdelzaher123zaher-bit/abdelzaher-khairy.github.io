@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عبد الظاهر خيري | متخصص جودة الغذاء</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1a6b3c;
+    --green-light: #2d9e5f;
+    --green-pale: #e8f5ee;
+    --teal: #0f8080;
+    --teal-light: #1ab8b8;
+    --amber: #d97706;
+    --amber-light: #f59e0b;
+    --amber-pale: #fffbeb;
+    --dark: #0d1f13;
+    --dark2: #1a3325;
+    --cream: #faf9f6;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --gray-light: #f3f4f6;
+    --radius: 16px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,31,19,0.95);
+    backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 800; font-size: 1.3rem;
+    color: var(--amber-light);
+    letter-spacing: -0.5px;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--amber-light); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0a2e1a 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 6rem 2rem 3rem;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(45,158,95,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 80% 30%, rgba(26,184,184,0.1) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 60% 80%, rgba(245,158,11,0.08) 0%, transparent 70%);
+  }
+  .hero-bg-circles {
+    position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+  }
+  .hero-bg-circles span {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.04);
+    animation: spin 25s linear infinite;
+  }
+  .hero-bg-circles span:nth-child(1) { width: 500px; height: 500px; top: -100px; right: -100px; animation-duration: 30s; }
+  .hero-bg-circles span:nth-child(2) { width: 300px; height: 300px; bottom: 50px; left: 50px; animation-duration: 20s; animation-direction: reverse; }
+  .hero-bg-circles span:nth-child(3) { width: 200px; height: 200px; top: 40%; left: 40%; animation-duration: 15s; border-color: rgba(245,158,11,0.08); }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(45,158,95,0.2);
+    border: 1px solid rgba(45,158,95,0.4);
+    color: #6ee7a0; padding: 6px 16px;
+    border-radius: 999px; font-size: 0.82rem; font-weight: 600;
+    margin-bottom: 1.25rem; width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '●'; color: #4ade80; font-size: 0.6rem; animation: blink 2s ease infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900; line-height: 1.1;
+    color: var(--white);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 .highlight {
+    background: linear-gradient(90deg, var(--green-light), var(--teal-light), var(--amber-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.6);
+    margin: 1rem 0 2rem; line-height: 1.7;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-contacts {
+    display: flex; flex-wrap: wrap; gap: 0.75rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .contact-chip {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.8);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 0.82rem; text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-chip:hover { background: rgba(45,158,95,0.25); border-color: var(--green-light); color: #fff; }
+  .contact-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  .hero-visual {
+    display: flex; flex-direction: column; gap: 1rem;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    text-align: center; min-width: 140px;
+  }
+  .stat-card .num {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 2rem; font-weight: 900;
+    background: linear-gradient(135deg, var(--green-light), var(--teal-light));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .stat-card .label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .section-tag::before { content: ''; width: 20px; height: 2px; background: var(--green); display: block; }
+
+  h2.section-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800; color: var(--dark);
+    margin-bottom: 3rem;
+    line-height: 1.2;
+  }
+
+  /* ─── ABOUT / SUMMARY ─── */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .about-text { font-size: 1.05rem; color: #374151; line-height: 1.85; }
+
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .skill-pill {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--green-pale);
+    border: 1px solid rgba(26,107,60,0.15);
+    color: var(--green); padding: 8px 12px;
+    border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600;
+  }
+  .skill-pill::before { content: '✓'; font-size: 0.75rem; color: var(--green-light); }
+
+  /* ─── EXPERIENCE ─── */
+  .experience { background: var(--dark); }
+  .experience .section-tag { color: var(--amber-light); }
+  .experience .section-tag::before { background: var(--amber-light); }
+  .experience h2.section-title { color: var(--white); }
+
+  .timeline { position: relative; padding-right: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute;
+    right: 0; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(to bottom, var(--green-light), var(--teal-light), transparent);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 2.5rem;
+    padding-right: 2rem;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute;
+    right: -7px; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--amber-light);
+    border: 3px solid var(--dark);
+    box-shadow: 0 0 0 2px var(--amber-light);
+  }
+  .timeline-date {
+    font-size: 0.78rem; color: var(--amber-light);
+    font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+  .timeline-role {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--white); margin-bottom: 2px;
+  }
+  .timeline-company {
+    font-size: 0.9rem; color: var(--green-light);
+    font-weight: 600; margin-bottom: 0.75rem;
+  }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    font-size: 0.88rem; color: rgba(255,255,255,0.65);
+    padding: 4px 0; padding-right: 18px; position: relative; line-height: 1.6;
+  }
+  .timeline-points li::before {
+    content: '▸'; position: absolute; right: 0;
+    color: var(--teal-light); font-size: 0.8rem; top: 5px;
+  }
+
+  /* ─── CERTIFICATIONS ─── */
+  .certifications { background: var(--cream); }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+  .cert-card {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .cert-card::before {
+    content: ''; position: absolute;
+    top: 0; right: 0; width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--green-light), var(--teal-light));
+  }
+  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+  .cert-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .cert-name { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+  .cert-date { font-size: 0.78rem; color: var(--gray); }
+  .cert-issuer { font-size: 0.78rem; color: var(--green); font-weight: 600; margin-top: 2px; }
+
+  /* ─── EDUCATION ─── */
+  .education { background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%); }
+  .education .section-tag { color: rgba(255,255,255,0.7); }
+  .education .section-tag::before { background: rgba(255,255,255,0.7); }
+  .education h2.section-title { color: var(--white); }
+  .edu-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 600px;
+  }
+  .edu-degree {
+    font-family: 'Tajawal', sans-serif;
+    font-size: 1.4rem; font-weight: 800; color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .edu-major { color: var(--amber-light); font-weight: 600; margin-bottom: 0.5rem; }
+  .edu-school { color: rgba(255,255,255,0.75); margin-bottom: 0.25rem; }
+  .edu-year { color: rgba(255,255,255,0.5); font-size: 0.88rem; }
+
+  /* ─── CONTACT ─── */
+  .contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+  .contact-item {
+    background: var(--green-pale);
+    border: 1px solid rgba(26,107,60,0.12);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex; flex-direction: column; gap: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contact-item:hover { background: var(--green); transform: translateY(-2px); }
+  .contact-item:hover .c-label, .contact-item:hover .c-value { color: rgba(255,255,255,0.85); }
+  .contact-item:hover .c-title { color: var(--white); }
+  .c-icon { font-size: 1.4rem; }
+  .c-title { font-weight: 700; color: var(--dark); font-size: 0.88rem; }
+  .c-value { font-size: 0.82rem; color: var(--gray); word-break: break-all; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.82rem;
+  }
+  footer span { color: var(--green-light); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-visual { flex-direction: row; justify-content: center; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    nav { padding: 0.75rem 1rem; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AK</div>
+  <ul class="nav-links">
+    <li><a href="#about">عني</a></li>
+    <li><a href="#experience">الخبرات</a></li>
+    <li><a href="#certifications">الشهادات</a></li>
+    <li><a href="#contact">تواصل</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circles">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">متاح للعمل فوراً · إقامة قابلة للتحويل</div>
+      <h1>عبد الظاهر<br><span class="highlight">خيري</span></h1>
+      <p class="hero-sub">متخصص جودة وسلامة الغذاء · خبرة في HACCP، ISO 22000:2018، FSSC 22000 v6<br>الأحساء، المنطقة الشرقية، المملكة العربية السعودية</p>
+      <div class="hero-contacts">
+        <a class="contact-chip" href="tel:+966510330283">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          +966 51 033 0283
+        </a>
+        <a class="contact-chip" href="mailto:abdelzaher123zaher@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Gmail
+        </a>
+        <a class="contact-chip" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card"><div class="num">3+</div><div class="label">سنوات خبرة</div></div>
+      <div class="stat-card"><div class="num">8</div><div class="label">شهادات معتمدة</div></div>
+      <div class="stat-card"><div class="num">ISO</div><div class="label">22000 · 45001</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-tag">نبذة عني</div>
+    <h2 class="section-title">ملخص مهني</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        متخصص في جودة وسلامة الغذاء بخبرة عملية في بيئات الإنتاج الغذائي والمطابخ المركزية وعمليات المشروبات. أمتلك قدرة مثبتة على تطبيق ومتابعة أنظمة HACCP وISO 22000:2018 وFSSC 22000 v6 وممارسات التصنيع الجيدة (GMP). ماهر في مراقبة الجودة والتحكم الإحصائي في العمليات (SPC) وفحص المواد الخام والتقييم الحسي، إلى جانب مبادرات التحسين المستمر التي تقلل معدلات العيوب وتضمن الامتثال الكامل لمتطلبات NFSA.
+      </div>
+      <div>
+        <div class="skills-grid">
+          <div class="skill-pill">HACCP</div>
+          <div class="skill-pill">ISO 22000:2018</div>
+          <div class="skill-pill">FSSC 22000 v6</div>
+          <div class="skill-pill">GMP & PRPs</div>
+          <div class="skill-pill">SPC</div>
+          <div class="skill-pill">التقييم الحسي</div>
+          <div class="skill-pill">ISO 45001:2018</div>
+          <div class="skill-pill">تحليل السبب الجذري</div>
+          <div class="skill-pill">لوائح NFSA</div>
+          <div class="skill-pill">إدارة الآفات IPM</div>
+          <div class="skill-pill">Python (مستوى مبتدئ)</div>
+          <div class="skill-pill">MS Office</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-tag">المسيرة المهنية</div>
+    <h2 class="section-title">الخبرات العملية</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">يونيو 2025 – يونيو 2026</div>
+        <div class="timeline-role">متخصص سلامة الغذاء</div>
+        <div class="timeline-company">ISL Catering Services · القاهرة الجديدة، مصر</div>
+        <ul class="timeline-points">
+          <li>تطبيق خطط HACCP وأنظمة إدارة سلامة الغذاء عبر خطوط إنتاج المطبخ المركزي والمخبوزات</li>
+          <li>الإشراف على مراقبة الجودة في جميع مراحل الإنتاج: الاستلام، التحضير، الخبز، التعبئة</li>
+          <li>إجراء تقييمات حسية منتظمة للمخبوزات: القوام، اللون، الطعم، المظهر</li>
+          <li>تنفيذ اختبارات مخبرية شاملة: تحليل الرطوبة، فحص المواد الخام، مراقبة جودة زيت القلي</li>
+          <li>فحص المواد الخام الواردة (دقيق، سكر، خميرة، زيوت) مقابل المواصفات المعتمدة</li>
+          <li>المساهمة في مبادرات التحسين المستمر التي عززت اتساق المنتج وقللت معدلات رفض الدفعات</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">يونيو 2024 – ديسمبر 2024</div>
+        <div class="timeline-role">مهندس جودة</div>
+        <div class="timeline-company">Aujan Coca-Cola Beverages Company (ACCBC) · أكتوبر، الجيزة، مصر</div>
+        <ul class="timeline-points">
+          <li>تطبيق معايير GMP وHACCP عبر خطوط إنتاج العصائر والمشروبات</li>
+          <li>مراقبة مواصفات المنتج: المكونات، التركيبة، متطلبات التعبئة، التحكم في العمر الافتراضي</li>
+          <li>تطبيق أدوات SPC لمراقبة أداء الإنتاج وتحديد الانحرافات</li>
+          <li>التنسيق مع فرق الإنتاج والموردين لضمان سير العمل وتنفيذ الإجراءات التصحيحية</li>
+          <li>تحليل بيانات الإنتاج لتحديد ثغرات العمليات ودعم مبادرات التحسين المستمر</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">يوليو 2023 – سبتمبر 2023</div>
+        <div class="timeline-role">مهندس إنتاج (متدرب)</div>
+        <div class="timeline-company">Marbella for Food Industries · 6 أكتوبر، الجيزة، مصر</div>
+        <ul class="timeline-points">
+          <li>تحليل بيانات الإنتاج وإعداد تقارير الأداء اليومية والأسبوعية</li>
+          <li>تطبيق معايير سلامة الغذاء والجودة في جميع مراحل الإنتاج</li>
+          <li>المساهمة في مبادرات تحسين الكفاءة وتقليل الهدر</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">يوليو 2022 – أغسطس 2022</div>
+        <div class="timeline-role">متدرب مراقبة جودة</div>
+        <div class="timeline-company">المركز المصري لتكنولوجيا الخبز (EBTC) · الدقي، الجيزة، مصر</div>
+        <ul class="timeline-points">
+          <li>فحص استلام القمح: محتوى الرطوبة، الشوائب، مطابقة المواصفات</li>
+          <li>مراقبة معاملات الطحن لضمان جودة الدقيق المتسقة</li>
+          <li>تطبيق معايير أخذ العينات والفحص والنظافة خلال أنشطة مراقبة الجودة</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="certifications" id="certifications">
+  <div class="container">
+    <div class="section-tag">الشهادات والتدريب</div>
+    <h2 class="section-title">الشهادات المعتمدة</h2>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div>
+          <div class="cert-name">FSSC 22000 v6 – نظام سلامة الغذاء</div>
+          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
+          <div class="cert-date">أغسطس 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🔬</div>
+        <div>
+          <div class="cert-name">HACCP وتحليل السبب الجذري</div>
+          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
+          <div class="cert-date">نوفمبر 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🛡️</div>
+        <div>
+          <div class="cert-name">ISO 45001:2018 – الصحة والسلامة</div>
+          <div class="cert-issuer">American Chamber of Commerce</div>
+          <div class="cert-date">أغسطس 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌿</div>
+        <div>
+          <div class="cert-name">إدارة الآفات المتكاملة IPM – PCT101</div>
+          <div class="cert-issuer">Premium Pest Control</div>
+          <div class="cert-date">أكتوبر 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🎓</div>
+        <div>
+          <div class="cert-name">Highfield Level 4 – سلامة الغذاء للتصنيع</div>
+          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
+          <div class="cert-date">أغسطس 2024</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">✅</div>
+        <div>
+          <div class="cert-name">HACCP – تحليل المخاطر ونقاط التحكم الحرجة</div>
+          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
+          <div class="cert-date">أكتوبر 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">📋</div>
+        <div>
+          <div class="cert-name">PRPs – البرامج التمهيدية</div>
+          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
+          <div class="cert-date">أكتوبر 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🌐</div>
+        <div>
+          <div class="cert-name">ISO 22000:2018 – نظام إدارة سلامة الغذاء</div>
+          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
+          <div class="cert-date">يونيو 2023</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">⚙️</div>
+        <div>
+          <div class="cert-name">GMP – ممارسات التصنيع الجيدة</div>
+          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
+          <div class="cert-date">مارس 2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education">
+  <div class="container">
+    <div class="section-tag">التعليم</div>
+    <h2 class="section-title">المؤهل الأكاديمي</h2>
+    <div class="edu-card">
+      <div class="edu-degree">بكالوريوس العلوم الزراعية</div>
+      <div class="edu-major">تخصص: تكنولوجيا تصنيع الغذاء</div>
+      <div class="edu-school">كلية الزراعة – جامعة القاهرة</div>
+      <div class="edu-year">تخرج: يونيو 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-tag">تواصل معي</div>
+    <h2 class="section-title">بيانات التواصل</h2>
+    <div class="contact-grid">
+      <a class="contact-item" href="tel:+966510330283">
+        <div class="c-icon">📞</div>
+        <div class="c-title">الهاتف</div>
+        <div class="c-value">+966 51 033 0283</div>
+      </a>
+      <a class="contact-item" href="mailto:abdelzaher123zaher@gmail.com">
+        <div class="c-icon">📧</div>
+        <div class="c-title">البريد الإلكتروني</div>
+        <div class="c-value">abdelzaher123zaher@gmail.com</div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
+        <div class="c-icon">💼</div>
+        <div class="c-title">LinkedIn</div>
+        <div class="c-value">linkedin.com/in/abdelzaher-khairy</div>
+      </a>
+      <div class="contact-item">
+        <div class="c-icon">📍</div>
+        <div class="c-title">الموقع</div>
+        <div class="c-value">الأحساء، المنطقة الشرقية، السعودية</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>صُمم بـ ❤ لـ <span>عبد الظاهر خيري</span> · متخصص جودة وسلامة الغذاء · 2026</p>
+</footer>
+
+</body>
+</html>
