@@ -1,373 +1,320 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="html-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عبد الظاهر خيري | متخصص جودة الغذاء</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<title>Abdel Zaher Khairy | Food Quality Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:#16a34a;--green2:#15803d;--green3:#14532d;
+  --green-light:#4ade80;--green-pale:#dcfce7;
+  --teal:#0d9488;--teal-light:#2dd4bf;--teal-pale:#ccfbf1;
+  --blue:#2563eb;--blue-light:#60a5fa;--blue-pale:#dbeafe;
+  --purple:#7c3aed;--purple-light:#a78bfa;--purple-pale:#ede9fe;
+  --amber:#d97706;--amber-light:#fbbf24;--amber-pale:#fef3c7;
+  --coral:#e11d48;--coral-light:#fb7185;--coral-pale:#ffe4e6;
+  --dark:#0a1628;--dark2:#0f2140;--dark3:#162d50;
+  --cream:#f8fafc;--white:#ffffff;--gray:#64748b;--gray2:#94a3b8;
+  --radius:16px;--radius-sm:8px;--radius-xl:24px;
+  --font-ar:'Cairo','Tajawal',sans-serif;
+  --font-en:'Poppins','Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-ar);background:var(--cream);color:var(--dark);overflow-x:hidden;}
+html[lang="en"] body{font-family:var(--font-en);}
+html[lang="en"]{direction:ltr;}
 
-  :root {
-    --green: #1a6b3c;
-    --green-light: #2d9e5f;
-    --green-pale: #e8f5ee;
-    --teal: #0f8080;
-    --teal-light: #1ab8b8;
-    --amber: #d97706;
-    --amber-light: #f59e0b;
-    --amber-pale: #fffbeb;
-    --dark: #0d1f13;
-    --dark2: #1a3325;
-    --cream: #faf9f6;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --gray-light: #f3f4f6;
-    --radius: 16px;
-    --radius-sm: 8px;
-  }
+/* LANG TOGGLE */
+.lang-toggle{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:999px;padding:4px;cursor:pointer;}
+.lang-btn{padding:5px 14px;border-radius:999px;font-size:0.8rem;font-weight:700;border:none;cursor:pointer;transition:all 0.25s;background:transparent;color:rgba(255,255,255,0.6);}
+.lang-btn.active{background:var(--amber-light);color:var(--dark);}
 
-  html { scroll-behavior: smooth; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,22,40,0.96);backdrop-filter:blur(16px);padding:0.85rem 2rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-logo{font-family:var(--font-en);font-weight:800;font-size:1.2rem;background:linear-gradient(135deg,var(--green-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav-right{display:flex;align-items:center;gap:1.5rem;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--amber-light);}
 
-  body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--cream);
-    color: var(--dark);
-    overflow-x: hidden;
-  }
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 40%,var(--dark3) 70%,#0c1e3a 100%);position:relative;overflow:hidden;display:flex;align-items:center;padding:7rem 2rem 4rem;}
+.hero-orbs{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.18;animation:float 8s ease-in-out infinite;}
+.orb1{width:500px;height:500px;background:radial-gradient(circle,#16a34a,transparent);top:-100px;right:-100px;}
+.orb2{width:400px;height:400px;background:radial-gradient(circle,#2563eb,transparent);bottom:-50px;left:-50px;animation-delay:3s;}
+.orb3{width:300px;height:300px;background:radial-gradient(circle,#7c3aed,transparent);top:40%;left:30%;animation-delay:5s;}
+.orb4{width:250px;height:250px;background:radial-gradient(circle,#0d9488,transparent);bottom:20%;right:20%;animation-delay:2s;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+.hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 360px;gap:4rem;align-items:center;}
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(13,31,19,0.95);
-    backdrop-filter: blur(12px);
-    padding: 1rem 2rem;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 800; font-size: 1.3rem;
-    color: var(--amber-light);
-    letter-spacing: -0.5px;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    color: rgba(255,255,255,0.75);
-    text-decoration: none; font-size: 0.9rem; font-weight: 500;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--amber-light); }
+/* PHOTO */
+.hero-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.photo-ring{position:relative;width:220px;height:220px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--teal),var(--blue),var(--purple));padding:4px;margin:0 auto;animation:spin-ring 8s linear infinite;}
+@keyframes spin-ring{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.photo-inner{width:100%;height:100%;border-radius:50%;background:var(--dark2);display:flex;align-items:center;justify-content:center;overflow:hidden;animation:spin-ring 8s linear infinite reverse;}
+.photo-initials{font-family:var(--font-en);font-size:4rem;font-weight:800;background:linear-gradient(135deg,var(--green-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.photo-badges{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.photo-badge{font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:999px;}
+.badge-green{background:rgba(74,222,128,0.15);border:1px solid rgba(74,222,128,0.3);color:var(--green-light);}
+.badge-blue{background:rgba(96,165,250,0.15);border:1px solid rgba(96,165,250,0.3);color:var(--blue-light);}
+.badge-amber{background:rgba(251,191,36,0.15);border:1px solid rgba(251,191,36,0.3);color:var(--amber-light);}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;width:100%;}
+.stat-box{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:0.9rem 0.5rem;text-align:center;}
+.stat-num{font-family:var(--font-en);font-size:1.6rem;font-weight:800;line-height:1;}
+.stat-num.g{background:linear-gradient(135deg,var(--green-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-num.b{background:linear-gradient(135deg,var(--blue-light),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-num.a{background:linear-gradient(135deg,var(--amber-light),var(--coral-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-lbl{font-size:0.68rem;color:rgba(255,255,255,0.4);margin-top:3px;}
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 50%, #0a2e1a 100%);
-    position: relative; overflow: hidden;
-    display: flex; align-items: center;
-    padding: 6rem 2rem 3rem;
-  }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(45,158,95,0.15) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 80% at 80% 30%, rgba(26,184,184,0.1) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 50% at 60% 80%, rgba(245,158,11,0.08) 0%, transparent 70%);
-  }
-  .hero-bg-circles {
-    position: absolute; inset: 0; overflow: hidden; pointer-events: none;
-  }
-  .hero-bg-circles span {
-    position: absolute; border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.04);
-    animation: spin 25s linear infinite;
-  }
-  .hero-bg-circles span:nth-child(1) { width: 500px; height: 500px; top: -100px; right: -100px; animation-duration: 30s; }
-  .hero-bg-circles span:nth-child(2) { width: 300px; height: 300px; bottom: 50px; left: 50px; animation-duration: 20s; animation-direction: reverse; }
-  .hero-bg-circles span:nth-child(3) { width: 200px; height: 200px; top: 40%; left: 40%; animation-duration: 15s; border-color: rgba(245,158,11,0.08); }
-  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* HERO TEXT */
+.hero-available{display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);color:#86efac;padding:6px 16px;border-radius:999px;font-size:0.78rem;font-weight:600;width:fit-content;margin-bottom:1.25rem;}
+.pulse{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+.hero h1{font-size:clamp(2.4rem,4.5vw,3.8rem);font-weight:800;line-height:1.08;color:var(--white);margin-bottom:0.4rem;}
+html[lang="ar"] .hero h1{font-family:'Tajawal',sans-serif;font-weight:900;}
+html[lang="en"] .hero h1{font-family:var(--font-en);}
+.title-line{background:linear-gradient(90deg,var(--green-light),var(--teal-light),var(--blue-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:clamp(1.2rem,2.5vw,1.8rem);font-weight:700;display:block;margin-top:0.3rem;}
+.hero-desc{font-size:0.95rem;color:rgba(255,255,255,0.55);line-height:1.8;margin:1rem 0 1.5rem;max-width:520px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1.75rem;}
+.chip{font-size:0.75rem;font-weight:600;padding:5px 12px;border-radius:999px;border:1px solid;}
+.chip-g{background:rgba(22,163,74,0.15);border-color:rgba(22,163,74,0.35);color:#86efac;}
+.chip-t{background:rgba(13,148,136,0.15);border-color:rgba(13,148,136,0.35);color:var(--teal-light);}
+.chip-b{background:rgba(37,99,235,0.15);border-color:rgba(37,99,235,0.35);color:var(--blue-light);}
+.chip-p{background:rgba(124,58,237,0.15);border-color:rgba(124,58,237,0.35);color:var(--purple-light);}
+.hero-contacts{display:flex;flex-wrap:wrap;gap:0.6rem;}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:999px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:all 0.25s;cursor:pointer;border:none;}
+.cta-primary{background:linear-gradient(135deg,var(--green),var(--teal));color:#fff;}
+.cta-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(22,163,74,0.4);}
+.cta-outline{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);}
+.cta-outline:hover{background:rgba(255,255,255,0.12);color:#fff;}
 
-  .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.container{max-width:1200px;margin:0 auto;}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:0.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:0.5rem;}
+.sec-label span.line{width:24px;height:2px;display:block;border-radius:999px;}
+h2.sec-title{font-weight:900;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;margin-bottom:2.5rem;}
+html[lang="ar"] h2.sec-title{font-family:'Tajawal',sans-serif;}
+html[lang="en"] h2.sec-title{font-family:var(--font-en);font-weight:800;}
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(45,158,95,0.2);
-    border: 1px solid rgba(45,158,95,0.4);
-    color: #6ee7a0; padding: 6px 16px;
-    border-radius: 999px; font-size: 0.82rem; font-weight: 600;
-    margin-bottom: 1.25rem; width: fit-content;
-    animation: fadeUp 0.6s ease both;
-  }
-  .hero-badge::before { content: '●'; color: #4ade80; font-size: 0.6rem; animation: blink 2s ease infinite; }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+/* ABOUT */
+.about{background:var(--white);}
+.sec-label.green{color:var(--green2);}
+.sec-label.green .line{background:var(--green);}
+.about-wrap{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.about-img-wrap{width:100%;height:280px;border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem;}
+.about-img-wrap img{width:100%;height:100%;object-fit:cover;}
+.about-text{font-size:1rem;color:#374151;line-height:1.9;}
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:1.5rem;}
+.sk{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:var(--radius-sm);font-size:0.8rem;font-weight:600;border:1px solid;}
+.sk::before{content:'✓';font-size:0.7rem;opacity:0.8;}
+.sk-g{background:var(--green-pale);border-color:rgba(22,163,74,0.2);color:var(--green2);}
+.sk-t{background:var(--teal-pale);border-color:rgba(13,148,136,0.2);color:var(--teal);}
+.sk-b{background:var(--blue-pale);border-color:rgba(37,99,235,0.15);color:var(--blue);}
+.sk-p{background:var(--purple-pale);border-color:rgba(124,58,237,0.15);color:var(--purple);}
 
-  .hero h1 {
-    font-family: 'Tajawal', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 900; line-height: 1.1;
-    color: var(--white);
-    animation: fadeUp 0.7s 0.1s ease both;
-  }
-  .hero h1 .highlight {
-    background: linear-gradient(90deg, var(--green-light), var(--teal-light), var(--amber-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hero-sub {
-    font-size: 1.1rem; color: rgba(255,255,255,0.6);
-    margin: 1rem 0 2rem; line-height: 1.7;
-    animation: fadeUp 0.7s 0.2s ease both;
-  }
+/* EXPERIENCE */
+.experience{background:var(--dark);position:relative;overflow:hidden;}
+.experience::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(74,222,128,0.04) 1px,transparent 1px);background-size:30px 30px;}
+.sec-label.amber{color:var(--amber-light);}
+.sec-label.amber .line{background:var(--amber-light);}
+.experience h2.sec-title{color:var(--white);}
+.sec-desc{color:rgba(255,255,255,0.5);font-size:0.95rem;margin-top:-2rem;margin-bottom:2.5rem;}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.exp-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-xl);padding:1.75rem;position:relative;overflow:hidden;transition:transform 0.3s,border-color 0.3s;}
+.exp-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.18);}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.exp-card.c1::before{background:linear-gradient(90deg,var(--green),var(--teal));}
+.exp-card.c2::before{background:linear-gradient(90deg,var(--blue),var(--purple));}
+.exp-card.c3::before{background:linear-gradient(90deg,var(--amber),var(--coral));}
+.exp-card.c4::before{background:linear-gradient(90deg,var(--teal),var(--blue));}
+.exp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;gap:1rem;}
+.exp-logo{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.lg1{background:rgba(74,222,128,0.12);}.lg2{background:rgba(96,165,250,0.12);}
+.lg3{background:rgba(251,191,36,0.12);}.lg4{background:rgba(45,212,191,0.12);}
+.exp-date{font-size:0.7rem;font-weight:700;padding:4px 10px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:999px;color:rgba(255,255,255,0.5);white-space:nowrap;font-family:var(--font-en);}
+.exp-role{font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:3px;}
+.exp-co{font-size:0.82rem;font-weight:600;margin-bottom:1rem;}
+.exp-co.g{color:#86efac;}.exp-co.b{color:var(--blue-light);}
+.exp-co.a{color:var(--amber-light);}.exp-co.t{color:var(--teal-light);}
+.exp-pts{list-style:none;display:flex;flex-direction:column;gap:6px;}
+.exp-pts li{font-size:0.82rem;color:rgba(255,255,255,0.58);line-height:1.55;padding-right:16px;position:relative;}
+html[lang="en"] .exp-pts li{padding-right:0;padding-left:16px;}
+.exp-pts li::before{content:'▸';position:absolute;right:0;color:rgba(255,255,255,0.25);font-size:0.7rem;top:3px;}
+html[lang="en"] .exp-pts li::before{right:auto;left:0;}
 
-  .hero-contacts {
-    display: flex; flex-wrap: wrap; gap: 0.75rem;
-    animation: fadeUp 0.7s 0.3s ease both;
-  }
-  .contact-chip {
-    display: flex; align-items: center; gap: 6px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.8);
-    padding: 8px 14px; border-radius: 999px;
-    font-size: 0.82rem; text-decoration: none;
-    transition: all 0.2s;
-  }
-  .contact-chip:hover { background: rgba(45,158,95,0.25); border-color: var(--green-light); color: #fff; }
-  .contact-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
+/* GALLERY */
+.gallery{background:linear-gradient(135deg,#f0fdf4,#ecfeff,#eff6ff);}
+.sec-label.teal{color:var(--teal);}
+.sec-label.teal .line{background:var(--teal);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.gallery-card{border-radius:var(--radius-xl);overflow:hidden;position:relative;aspect-ratio:4/3;transition:transform 0.3s;}
+.gallery-card:hover{transform:scale(1.03);}
+.gallery-card.wide{grid-column:span 2;aspect-ratio:16/9;}
+.gallery-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.gallery-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.75));padding:1.5rem 1rem 0.75rem;color:#fff;font-size:0.8rem;font-weight:600;}
 
-  .hero-visual {
-    display: flex; flex-direction: column; gap: 1rem;
-    animation: fadeUp 0.7s 0.4s ease both;
-  }
-  .stat-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    text-align: center; min-width: 140px;
-  }
-  .stat-card .num {
-    font-family: 'Tajawal', sans-serif;
-    font-size: 2rem; font-weight: 900;
-    background: linear-gradient(135deg, var(--green-light), var(--teal-light));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
-  .stat-card .label { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+/* CERTS */
+.certifications{background:var(--white);}
+.sec-label.blue{color:var(--blue);}
+.sec-label.blue .line{background:var(--blue);}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.cert-card{border-radius:var(--radius);padding:1.25rem;position:relative;overflow:hidden;transition:transform 0.25s,box-shadow 0.25s;border:1px solid;}
+.cert-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.1);}
+.cert-card.cg{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border-color:rgba(22,163,74,0.2);}
+.cert-card.ct{background:linear-gradient(135deg,#f0fdfa,#ccfbf1);border-color:rgba(13,148,136,0.2);}
+.cert-card.cb{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:rgba(37,99,235,0.15);}
+.cert-card.cp{background:linear-gradient(135deg,#faf5ff,#ede9fe);border-color:rgba(124,58,237,0.15);}
+.cert-card.ca{background:linear-gradient(135deg,#fffbeb,#fef3c7);border-color:rgba(217,119,6,0.2);}
+.cert-ico{font-size:2rem;margin-bottom:0.75rem;display:block;}
+.cert-name{font-size:0.88rem;font-weight:700;color:var(--dark);margin-bottom:4px;line-height:1.4;}
+.cert-iss{font-size:0.75rem;color:var(--gray);margin-bottom:3px;}
+.cert-dt{font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:999px;display:inline-block;margin-top:4px;font-family:var(--font-en);}
+.cg .cert-dt{background:var(--green-pale);color:var(--green2);}
+.ct .cert-dt{background:var(--teal-pale);color:var(--teal);}
+.cb .cert-dt{background:var(--blue-pale);color:var(--blue);}
+.cp .cert-dt{background:var(--purple-pale);color:var(--purple);}
+.ca .cert-dt{background:var(--amber-pale);color:var(--amber);}
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+/* EDUCATION */
+.education{background:linear-gradient(135deg,var(--dark2),var(--dark3),#1a2744);}
+.sec-label.purple{color:var(--purple-light);}
+.sec-label.purple .line{background:var(--purple-light);}
+.education h2.sec-title{color:var(--white);}
+.edu-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+.edu-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-xl);padding:2.5rem;position:relative;overflow:hidden;}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--purple),var(--blue),var(--teal));}
+.edu-icon{font-size:3rem;margin-bottom:1rem;}
+.edu-degree{font-size:1.3rem;font-weight:800;color:var(--white);margin-bottom:6px;}
+.edu-major{color:var(--purple-light);font-weight:600;font-size:0.95rem;margin-bottom:6px;}
+.edu-school{color:rgba(255,255,255,0.65);font-size:0.9rem;margin-bottom:4px;}
+.edu-year{color:rgba(255,255,255,0.4);font-size:0.82rem;font-family:var(--font-en);margin-top:1rem;display:inline-flex;align-items:center;gap:6px;}
+.edu-year::before{content:'🎓';font-size:0.9rem;}
+.edu-langs{display:flex;flex-direction:column;gap:1rem;}
+.lang-head{color:rgba(255,255,255,0.5);font-size:0.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.5rem;}
+.lang-item{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:1.25rem 1.5rem;}
+.lang-name{color:var(--white);font-weight:700;margin-bottom:8px;font-size:0.95rem;}
+.lang-bar{height:6px;background:rgba(255,255,255,0.1);border-radius:999px;overflow:hidden;}
+.lang-fill{height:100%;border-radius:999px;}
+.lang-lvl{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:5px;}
 
-  /* ─── SECTION BASE ─── */
-  section { padding: 5rem 2rem; }
-  .container { max-width: 1100px; margin: 0 auto; }
+/* CONTACT */
+.contact{background:var(--cream);}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;max-width:700px;}
+.con-card{display:flex;align-items:center;gap:1rem;background:var(--white);border:1px solid rgba(0,0,0,0.07);border-radius:var(--radius);padding:1.25rem 1.5rem;text-decoration:none;transition:all 0.25s;}
+.con-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.1);}
+.con-ico{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.cig{background:var(--green-pale);}.cit{background:var(--teal-pale);}
+.cib{background:var(--blue-pale);}.cip{background:var(--purple-pale);}
+.con-label{font-size:0.72rem;color:var(--gray2);font-weight:600;text-transform:uppercase;letter-spacing:1px;}
+.con-val{font-size:0.88rem;font-weight:700;color:var(--dark);margin-top:2px;}
 
-  .section-tag {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
-    text-transform: uppercase; color: var(--green);
-    margin-bottom: 0.5rem;
-  }
-  .section-tag::before { content: ''; width: 20px; height: 2px; background: var(--green); display: block; }
+/* FOOTER */
+footer{background:var(--dark);padding:2rem;}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:1rem;}
+.footer-name{font-family:var(--font-en);font-weight:800;font-size:1.1rem;background:linear-gradient(90deg,var(--green-light),var(--teal-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.footer-copy{color:rgba(255,255,255,0.3);font-size:0.8rem;}
+.footer-dots{display:flex;gap:6px;}
+.footer-dots span{width:8px;height:8px;border-radius:50%;}
 
-  h2.section-title {
-    font-family: 'Tajawal', sans-serif;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 800; color: var(--dark);
-    margin-bottom: 3rem;
-    line-height: 1.2;
-  }
+/* LANG VISIBILITY */
+.ar-only{display:block;}
+.en-only{display:none;}
+html[lang="en"] .ar-only{display:none;}
+html[lang="en"] .en-only{display:block;}
+span.ar-only{display:inline;}
+span.en-only{display:none;}
+html[lang="en"] span.ar-only{display:none;}
+html[lang="en"] span.en-only{display:inline;}
 
-  /* ─── ABOUT / SUMMARY ─── */
-  .about { background: var(--white); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-  .about-text { font-size: 1.05rem; color: #374151; line-height: 1.85; }
-
-  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .skill-pill {
-    display: flex; align-items: center; gap: 8px;
-    background: var(--green-pale);
-    border: 1px solid rgba(26,107,60,0.15);
-    color: var(--green); padding: 8px 12px;
-    border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600;
-  }
-  .skill-pill::before { content: '✓'; font-size: 0.75rem; color: var(--green-light); }
-
-  /* ─── EXPERIENCE ─── */
-  .experience { background: var(--dark); }
-  .experience .section-tag { color: var(--amber-light); }
-  .experience .section-tag::before { background: var(--amber-light); }
-  .experience h2.section-title { color: var(--white); }
-
-  .timeline { position: relative; padding-right: 2rem; }
-  .timeline::before {
-    content: ''; position: absolute;
-    right: 0; top: 0; bottom: 0; width: 2px;
-    background: linear-gradient(to bottom, var(--green-light), var(--teal-light), transparent);
-  }
-  .timeline-item {
-    position: relative; margin-bottom: 2.5rem;
-    padding-right: 2rem;
-  }
-  .timeline-item::before {
-    content: ''; position: absolute;
-    right: -7px; top: 6px;
-    width: 14px; height: 14px; border-radius: 50%;
-    background: var(--amber-light);
-    border: 3px solid var(--dark);
-    box-shadow: 0 0 0 2px var(--amber-light);
-  }
-  .timeline-date {
-    font-size: 0.78rem; color: var(--amber-light);
-    font-weight: 600; letter-spacing: 1px;
-    margin-bottom: 0.3rem;
-  }
-  .timeline-role {
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1.2rem; font-weight: 700;
-    color: var(--white); margin-bottom: 2px;
-  }
-  .timeline-company {
-    font-size: 0.9rem; color: var(--green-light);
-    font-weight: 600; margin-bottom: 0.75rem;
-  }
-  .timeline-points { list-style: none; }
-  .timeline-points li {
-    font-size: 0.88rem; color: rgba(255,255,255,0.65);
-    padding: 4px 0; padding-right: 18px; position: relative; line-height: 1.6;
-  }
-  .timeline-points li::before {
-    content: '▸'; position: absolute; right: 0;
-    color: var(--teal-light); font-size: 0.8rem; top: 5px;
-  }
-
-  /* ─── CERTIFICATIONS ─── */
-  .certifications { background: var(--cream); }
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
-  .cert-card {
-    background: var(--white);
-    border: 1px solid rgba(0,0,0,0.06);
-    border-radius: var(--radius);
-    padding: 1.25rem 1.5rem;
-    display: flex; gap: 1rem; align-items: flex-start;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative; overflow: hidden;
-  }
-  .cert-card::before {
-    content: ''; position: absolute;
-    top: 0; right: 0; width: 4px; height: 100%;
-    background: linear-gradient(to bottom, var(--green-light), var(--teal-light));
-  }
-  .cert-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
-  .cert-icon {
-    width: 42px; height: 42px; border-radius: 10px;
-    background: var(--green-pale);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem; flex-shrink: 0;
-  }
-  .cert-name { font-size: 0.9rem; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
-  .cert-date { font-size: 0.78rem; color: var(--gray); }
-  .cert-issuer { font-size: 0.78rem; color: var(--green); font-weight: 600; margin-top: 2px; }
-
-  /* ─── EDUCATION ─── */
-  .education { background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%); }
-  .education .section-tag { color: rgba(255,255,255,0.7); }
-  .education .section-tag::before { background: rgba(255,255,255,0.7); }
-  .education h2.section-title { color: var(--white); }
-  .edu-card {
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: var(--radius);
-    padding: 2rem;
-    max-width: 600px;
-  }
-  .edu-degree {
-    font-family: 'Tajawal', sans-serif;
-    font-size: 1.4rem; font-weight: 800; color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-  .edu-major { color: var(--amber-light); font-weight: 600; margin-bottom: 0.5rem; }
-  .edu-school { color: rgba(255,255,255,0.75); margin-bottom: 0.25rem; }
-  .edu-year { color: rgba(255,255,255,0.5); font-size: 0.88rem; }
-
-  /* ─── CONTACT ─── */
-  .contact { background: var(--white); }
-  .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
-  .contact-item {
-    background: var(--green-pale);
-    border: 1px solid rgba(26,107,60,0.12);
-    border-radius: var(--radius);
-    padding: 1.5rem;
-    display: flex; flex-direction: column; gap: 8px;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .contact-item:hover { background: var(--green); transform: translateY(-2px); }
-  .contact-item:hover .c-label, .contact-item:hover .c-value { color: rgba(255,255,255,0.85); }
-  .contact-item:hover .c-title { color: var(--white); }
-  .c-icon { font-size: 1.4rem; }
-  .c-title { font-weight: 700; color: var(--dark); font-size: 0.88rem; }
-  .c-value { font-size: 0.82rem; color: var(--gray); word-break: break-all; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--dark);
-    color: rgba(255,255,255,0.4);
-    text-align: center; padding: 1.5rem;
-    font-size: 0.82rem;
-  }
-  footer span { color: var(--green-light); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    .hero-content { grid-template-columns: 1fr; }
-    .hero-visual { flex-direction: row; justify-content: center; }
-    .about-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    nav { padding: 0.75rem 1rem; }
-    .nav-links { gap: 1rem; }
-  }
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero-inner,.about-wrap,.exp-grid,.edu-wrap{grid-template-columns:1fr;}
+  .hero-photo-wrap{order:-1;}
+  .certs-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .gallery-card.wide{grid-column:span 2;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .certs-grid,.contact-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-card.wide{grid-column:span 1;}
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">AK</div>
-  <ul class="nav-links">
-    <li><a href="#about">عني</a></li>
-    <li><a href="#experience">الخبرات</a></li>
-    <li><a href="#certifications">الشهادات</a></li>
-    <li><a href="#contact">تواصل</a></li>
-  </ul>
+  <div class="nav-logo">AZK</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about"><span class="ar-only">عني</span><span class="en-only">About</span></a></li>
+      <li><a href="#experience"><span class="ar-only">الخبرات</span><span class="en-only">Experience</span></a></li>
+      <li><a href="#certifications"><span class="ar-only">الشهادات</span><span class="en-only">Certs</span></a></li>
+      <li><a href="#contact"><span class="ar-only">تواصل</span><span class="en-only">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-ar" onclick="setLang('ar')">عر</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-circles">
-    <span></span><span></span><span></span>
+  <div class="hero-orbs">
+    <div class="orb orb1"></div><div class="orb orb2"></div>
+    <div class="orb orb3"></div><div class="orb orb4"></div>
   </div>
-  <div class="hero-content">
+  <div class="hero-inner">
     <div>
-      <div class="hero-badge">متاح للعمل فوراً · إقامة قابلة للتحويل</div>
-      <h1>عبد الظاهر<br><span class="highlight">خيري</span></h1>
-      <p class="hero-sub">متخصص جودة وسلامة الغذاء · خبرة في HACCP، ISO 22000:2018، FSSC 22000 v6<br>الأحساء، المنطقة الشرقية، المملكة العربية السعودية</p>
+      <div class="hero-available">
+        <div class="pulse"></div>
+        <span class="ar-only">متاح للعمل · إقامة قابلة للتحويل</span>
+        <span class="en-only">Available Immediately · Transferable Iqama</span>
+      </div>
+      <h1>
+        <div class="ar-only">عبد الظاهر خيري</div>
+        <div class="en-only">Abdel Zaher Khairy</div>
+        <span class="title-line ar-only">متخصص جودة وسلامة الغذاء</span>
+        <span class="title-line en-only">Food Quality & Safety Specialist</span>
+      </h1>
+      <p class="hero-desc ar-only">خبرة في مطابخ مركزية، صناعات غذائية، ومشروبات FMCG · الأحساء، المنطقة الشرقية، السعودية</p>
+      <p class="hero-desc en-only">Experience in central kitchens, food manufacturing & FMCG beverages · Al Ahsa, Eastern Province, Saudi Arabia</p>
+      <div class="hero-chips">
+        <span class="chip chip-g">HACCP</span>
+        <span class="chip chip-t">ISO 22000:2018</span>
+        <span class="chip chip-b">FSSC 22000 v6</span>
+        <span class="chip chip-p">ISO 45001:2018</span>
+        <span class="chip chip-g">GMP & PRPs</span>
+        <span class="chip chip-t">SPC</span>
+      </div>
       <div class="hero-contacts">
-        <a class="contact-chip" href="tel:+966510330283">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012 .01h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-          +966 51 033 0283
-        </a>
-        <a class="contact-chip" href="mailto:abdelzaher123zaher@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Gmail
-        </a>
-        <a class="contact-chip" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
+        <a class="cta-btn cta-primary" href="mailto:abdelzaher123zaher@gmail.com">📧 <span class="ar-only">راسلني</span><span class="en-only">Email Me</span></a>
+        <a class="cta-btn cta-outline" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">💼 LinkedIn</a>
+        <a class="cta-btn cta-outline" href="tel:+966510330283">📞 +966 51 033 0283</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="stat-card"><div class="num">3+</div><div class="label">سنوات خبرة</div></div>
-      <div class="stat-card"><div class="num">8</div><div class="label">شهادات معتمدة</div></div>
-      <div class="stat-card"><div class="num">ISO</div><div class="label">22000 · 45001</div></div>
+    <div class="hero-photo-wrap">
+      <div class="photo-ring">
+        <div class="photo-inner"><div class="photo-initials">AZK</div></div>
+      </div>
+      <div class="photo-badges">
+        <span class="photo-badge badge-green">Food Safety Expert</span>
+        <span class="photo-badge badge-blue">Quality Engineer</span>
+        <span class="photo-badge badge-amber">NFSA Compliant</span>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box"><div class="stat-num g">3+</div><div class="stat-lbl ar-only">سنوات</div><div class="stat-lbl en-only">Years</div></div>
+        <div class="stat-box"><div class="stat-num b">8</div><div class="stat-lbl ar-only">شهادات</div><div class="stat-lbl en-only">Certs</div></div>
+        <div class="stat-box"><div class="stat-num a">4</div><div class="stat-lbl ar-only">شركات</div><div class="stat-lbl en-only">Companies</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -375,26 +322,31 @@
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="container">
-    <div class="section-tag">نبذة عني</div>
-    <h2 class="section-title">ملخص مهني</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        متخصص في جودة وسلامة الغذاء بخبرة عملية في بيئات الإنتاج الغذائي والمطابخ المركزية وعمليات المشروبات. أمتلك قدرة مثبتة على تطبيق ومتابعة أنظمة HACCP وISO 22000:2018 وFSSC 22000 v6 وممارسات التصنيع الجيدة (GMP). ماهر في مراقبة الجودة والتحكم الإحصائي في العمليات (SPC) وفحص المواد الخام والتقييم الحسي، إلى جانب مبادرات التحسين المستمر التي تقلل معدلات العيوب وتضمن الامتثال الكامل لمتطلبات NFSA.
+    <div class="sec-label green"><span class="line"></span><span class="ar-only">نبذة عني</span><span class="en-only">About Me</span></div>
+    <h2 class="sec-title ar-only">ملخص مهني</h2>
+    <h2 class="sec-title en-only">Professional Summary</h2>
+    <div class="about-wrap">
+      <div>
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1565117631760-3b5b6fe937f0?w=800&auto=format&fit=crop" alt="Food Quality Lab">
+        </div>
+        <p class="about-text ar-only">متخصص في جودة وسلامة الغذاء بخبرة عملية في بيئات الإنتاج الغذائي والمطابخ المركزية وعمليات المشروبات. أمتلك قدرة مثبتة على تطبيق أنظمة HACCP وISO 22000:2018 وFSSC 22000 v6 وممارسات التصنيع الجيدة. ماهر في مراقبة الجودة والتحكم الإحصائي في العمليات وفحص المواد الخام والتقييم الحسي.</p>
+        <p class="about-text en-only">Results-driven Food Quality & Safety Specialist with hands-on experience in food production, central kitchens, and FMCG beverage operations. Proven ability to implement HACCP, ISO 22000:2018, FSSC 22000 v6, GMP, and PRPs. Skilled in QC, SPC, raw material inspection, sensory evaluation, and continuous improvement.</p>
       </div>
       <div>
-        <div class="skills-grid">
-          <div class="skill-pill">HACCP</div>
-          <div class="skill-pill">ISO 22000:2018</div>
-          <div class="skill-pill">FSSC 22000 v6</div>
-          <div class="skill-pill">GMP & PRPs</div>
-          <div class="skill-pill">SPC</div>
-          <div class="skill-pill">التقييم الحسي</div>
-          <div class="skill-pill">ISO 45001:2018</div>
-          <div class="skill-pill">تحليل السبب الجذري</div>
-          <div class="skill-pill">لوائح NFSA</div>
-          <div class="skill-pill">إدارة الآفات IPM</div>
-          <div class="skill-pill">Python (مستوى مبتدئ)</div>
-          <div class="skill-pill">MS Office</div>
+        <div class="skills-wrap">
+          <div class="sk sk-g">HACCP</div>
+          <div class="sk sk-g">ISO 22000:2018</div>
+          <div class="sk sk-t">FSSC 22000 v6</div>
+          <div class="sk sk-t">GMP & PRPs</div>
+          <div class="sk sk-b">SPC</div>
+          <div class="sk sk-b ar-only">التقييم الحسي</div><div class="sk sk-b en-only">Sensory Evaluation</div>
+          <div class="sk sk-p">ISO 45001:2018</div>
+          <div class="sk sk-p ar-only">تحليل السبب الجذري</div><div class="sk sk-p en-only">Root Cause Analysis</div>
+          <div class="sk sk-g">NFSA</div>
+          <div class="sk sk-t">IPM</div>
+          <div class="sk sk-b">Python</div>
+          <div class="sk sk-p">MS Office</div>
         </div>
       </div>
     </div>
@@ -404,56 +356,80 @@
 <!-- EXPERIENCE -->
 <section class="experience" id="experience">
   <div class="container">
-    <div class="section-tag">المسيرة المهنية</div>
-    <h2 class="section-title">الخبرات العملية</h2>
-    <div class="timeline">
+    <div class="sec-label amber"><span class="line"></span><span class="ar-only">المسيرة المهنية</span><span class="en-only">Career Path</span></div>
+    <h2 class="sec-title ar-only">الخبرات العملية</h2>
+    <h2 class="sec-title en-only">Work Experience</h2>
+    <p class="sec-desc ar-only">رحلة احترافية عبر صناعات الغذاء والمشروبات</p>
+    <p class="sec-desc en-only">A professional journey across food & beverage industries</p>
+    <div class="exp-grid">
 
-      <div class="timeline-item">
-        <div class="timeline-date">يونيو 2025 – يونيو 2026</div>
-        <div class="timeline-role">متخصص سلامة الغذاء</div>
-        <div class="timeline-company">ISL Catering Services · القاهرة الجديدة، مصر</div>
-        <ul class="timeline-points">
-          <li>تطبيق خطط HACCP وأنظمة إدارة سلامة الغذاء عبر خطوط إنتاج المطبخ المركزي والمخبوزات</li>
-          <li>الإشراف على مراقبة الجودة في جميع مراحل الإنتاج: الاستلام، التحضير، الخبز، التعبئة</li>
-          <li>إجراء تقييمات حسية منتظمة للمخبوزات: القوام، اللون، الطعم، المظهر</li>
-          <li>تنفيذ اختبارات مخبرية شاملة: تحليل الرطوبة، فحص المواد الخام، مراقبة جودة زيت القلي</li>
-          <li>فحص المواد الخام الواردة (دقيق، سكر، خميرة، زيوت) مقابل المواصفات المعتمدة</li>
-          <li>المساهمة في مبادرات التحسين المستمر التي عززت اتساق المنتج وقللت معدلات رفض الدفعات</li>
+      <div class="exp-card c1">
+        <div class="exp-head">
+          <div class="exp-logo lg1">🍞</div>
+          <span class="exp-date">Jun 2025 – Jun 2026</span>
+        </div>
+        <div class="exp-role ar-only">متخصص سلامة الغذاء</div>
+        <div class="exp-role en-only">Food Safety Specialist</div>
+        <div class="exp-co g">ISL Catering Services · Cairo, Egypt</div>
+        <ul class="exp-pts">
+          <li class="ar-only">تطبيق خطط HACCP وأنظمة إدارة سلامة الغذاء عبر خطوط الإنتاج</li>
+          <li class="en-only">Implemented HACCP plans across central kitchen and bakery lines</li>
+          <li class="ar-only">الإشراف على مراقبة الجودة في جميع مراحل الإنتاج</li>
+          <li class="en-only">Supervised QC at all production stages: receiving, prep, baking</li>
+          <li class="ar-only">تنفيذ اختبارات مخبرية شاملة وتقييمات حسية للمخبوزات</li>
+          <li class="en-only">Performed lab tests and sensory evaluations for consistency</li>
+          <li class="ar-only">المساهمة في تقليل معدلات رفض الدفعات</li>
+          <li class="en-only">Contributed to reducing batch rejection rates significantly</li>
         </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-date">يونيو 2024 – ديسمبر 2024</div>
-        <div class="timeline-role">مهندس جودة</div>
-        <div class="timeline-company">Aujan Coca-Cola Beverages Company (ACCBC) · أكتوبر، الجيزة، مصر</div>
-        <ul class="timeline-points">
-          <li>تطبيق معايير GMP وHACCP عبر خطوط إنتاج العصائر والمشروبات</li>
-          <li>مراقبة مواصفات المنتج: المكونات، التركيبة، متطلبات التعبئة، التحكم في العمر الافتراضي</li>
-          <li>تطبيق أدوات SPC لمراقبة أداء الإنتاج وتحديد الانحرافات</li>
-          <li>التنسيق مع فرق الإنتاج والموردين لضمان سير العمل وتنفيذ الإجراءات التصحيحية</li>
-          <li>تحليل بيانات الإنتاج لتحديد ثغرات العمليات ودعم مبادرات التحسين المستمر</li>
+      <div class="exp-card c2">
+        <div class="exp-head">
+          <div class="exp-logo lg2">🥤</div>
+          <span class="exp-date">Jun – Dec 2024</span>
+        </div>
+        <div class="exp-role ar-only">مهندس جودة</div>
+        <div class="exp-role en-only">Quality Engineer</div>
+        <div class="exp-co b">Aujan Coca-Cola (ACCBC) · Giza, Egypt</div>
+        <ul class="exp-pts">
+          <li class="ar-only">تطبيق معايير GMP وHACCP عبر خطوط إنتاج المشروبات</li>
+          <li class="en-only">Applied GMP & HACCP across juice and beverage production lines</li>
+          <li class="ar-only">تطبيق أدوات SPC لمراقبة أداء الإنتاج وتحديد الانحرافات</li>
+          <li class="en-only">Implemented SPC tools for production monitoring & deviation detection</li>
+          <li class="ar-only">مراقبة مواصفات المنتج والعمر الافتراضي</li>
+          <li class="en-only">Monitored product specs, formulation & shelf-life control</li>
         </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-date">يوليو 2023 – سبتمبر 2023</div>
-        <div class="timeline-role">مهندس إنتاج (متدرب)</div>
-        <div class="timeline-company">Marbella for Food Industries · 6 أكتوبر، الجيزة، مصر</div>
-        <ul class="timeline-points">
-          <li>تحليل بيانات الإنتاج وإعداد تقارير الأداء اليومية والأسبوعية</li>
-          <li>تطبيق معايير سلامة الغذاء والجودة في جميع مراحل الإنتاج</li>
-          <li>المساهمة في مبادرات تحسين الكفاءة وتقليل الهدر</li>
+      <div class="exp-card c3">
+        <div class="exp-head">
+          <div class="exp-logo lg3">🏭</div>
+          <span class="exp-date">Jul – Sep 2023</span>
+        </div>
+        <div class="exp-role ar-only">مهندس إنتاج (متدرب)</div>
+        <div class="exp-role en-only">Production Engineer (Trainee)</div>
+        <div class="exp-co a">Marbella for Food Industries · Giza, Egypt</div>
+        <ul class="exp-pts">
+          <li class="ar-only">تحليل بيانات الإنتاج وإعداد تقارير الأداء</li>
+          <li class="en-only">Analyzed production data and prepared performance reports</li>
+          <li class="ar-only">المساهمة في مبادرات تقليل الهدر وتحسين الكفاءة</li>
+          <li class="en-only">Contributed to waste reduction and efficiency improvement</li>
         </ul>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-date">يوليو 2022 – أغسطس 2022</div>
-        <div class="timeline-role">متدرب مراقبة جودة</div>
-        <div class="timeline-company">المركز المصري لتكنولوجيا الخبز (EBTC) · الدقي، الجيزة، مصر</div>
-        <ul class="timeline-points">
-          <li>فحص استلام القمح: محتوى الرطوبة، الشوائب، مطابقة المواصفات</li>
-          <li>مراقبة معاملات الطحن لضمان جودة الدقيق المتسقة</li>
-          <li>تطبيق معايير أخذ العينات والفحص والنظافة خلال أنشطة مراقبة الجودة</li>
+      <div class="exp-card c4">
+        <div class="exp-head">
+          <div class="exp-logo lg4">🌾</div>
+          <span class="exp-date">Jul – Aug 2022</span>
+        </div>
+        <div class="exp-role ar-only">متدرب مراقبة جودة</div>
+        <div class="exp-role en-only">Quality Control Trainee</div>
+        <div class="exp-co t">EBTC · Dokki, Giza, Egypt</div>
+        <ul class="exp-pts">
+          <li class="ar-only">فحص استلام القمح: الرطوبة، الشوائب، مطابقة المواصفات</li>
+          <li class="en-only">Wheat receiving QC: moisture content, impurities, spec conformity</li>
+          <li class="ar-only">مراقبة معاملات الطحن لضمان جودة الدقيق</li>
+          <li class="en-only">Monitored milling parameters for consistent flour quality</li>
         </ul>
       </div>
 
@@ -461,83 +437,86 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="sec-label teal"><span class="line"></span><span class="ar-only">بيئة العمل</span><span class="en-only">Work Environment</span></div>
+    <h2 class="sec-title ar-only">صناعة الغذاء والجودة</h2>
+    <h2 class="sec-title en-only">Food Industry & Quality</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card wide">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=900&auto=format&fit=crop" alt="Food Production">
+        <div class="gallery-cap ar-only">🏭 خطوط الإنتاج الغذائي</div>
+        <div class="gallery-cap en-only">🏭 Food Production Lines</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=500&auto=format&fit=crop" alt="Quality Lab">
+        <div class="gallery-cap ar-only">🔬 مختبر الجودة</div>
+        <div class="gallery-cap en-only">🔬 Quality Laboratory</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=500&auto=format&fit=crop" alt="Food Safety">
+        <div class="gallery-cap ar-only">✅ سلامة الغذاء</div>
+        <div class="gallery-cap en-only">✅ Food Safety</div>
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&auto=format&fit=crop" alt="Bakery">
+        <div class="gallery-cap ar-only">🍞 المخبوزات</div>
+        <div class="gallery-cap en-only">🍞 Bakery Production</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CERTIFICATIONS -->
 <section class="certifications" id="certifications">
   <div class="container">
-    <div class="section-tag">الشهادات والتدريب</div>
-    <h2 class="section-title">الشهادات المعتمدة</h2>
+    <div class="sec-label blue"><span class="line"></span><span class="ar-only">الشهادات والتدريب</span><span class="en-only">Certifications & Training</span></div>
+    <h2 class="sec-title ar-only">الشهادات المعتمدة</h2>
+    <h2 class="sec-title en-only">Professional Certifications</h2>
     <div class="certs-grid">
-      <div class="cert-card">
-        <div class="cert-icon">🏆</div>
-        <div>
-          <div class="cert-name">FSSC 22000 v6 – نظام سلامة الغذاء</div>
-          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
-          <div class="cert-date">أغسطس 2025</div>
-        </div>
+      <div class="cert-card cg"><span class="cert-ico">🏆</span>
+        <div class="cert-name ar-only">FSSC 22000 v6 – نظام سلامة الغذاء</div>
+        <div class="cert-name en-only">FSSC 22000 v6 – Food Safety System</div>
+        <div class="cert-iss">American Express SafeKey</div><span class="cert-dt">Aug 2025</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">🔬</div>
-        <div>
-          <div class="cert-name">HACCP وتحليل السبب الجذري</div>
-          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
-          <div class="cert-date">نوفمبر 2025</div>
-        </div>
+      <div class="cert-card ct"><span class="cert-ico">🔬</span>
+        <div class="cert-name ar-only">HACCP وتحليل السبب الجذري</div>
+        <div class="cert-name en-only">HACCP & Root Cause Analysis</div>
+        <div class="cert-iss">American Express SafeKey</div><span class="cert-dt">Nov 2025</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">🛡️</div>
-        <div>
-          <div class="cert-name">ISO 45001:2018 – الصحة والسلامة</div>
-          <div class="cert-issuer">American Chamber of Commerce</div>
-          <div class="cert-date">أغسطس 2025</div>
-        </div>
+      <div class="cert-card cb"><span class="cert-ico">🛡️</span>
+        <div class="cert-name ar-only">ISO 45001:2018 – الصحة والسلامة</div>
+        <div class="cert-name en-only">ISO 45001:2018 – Health & Safety</div>
+        <div class="cert-iss">American Chamber of Commerce</div><span class="cert-dt">Aug 2025</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">🌿</div>
-        <div>
-          <div class="cert-name">إدارة الآفات المتكاملة IPM – PCT101</div>
-          <div class="cert-issuer">Premium Pest Control</div>
-          <div class="cert-date">أكتوبر 2025</div>
-        </div>
+      <div class="cert-card cp"><span class="cert-ico">🌿</span>
+        <div class="cert-name ar-only">إدارة الآفات المتكاملة IPM</div>
+        <div class="cert-name en-only">Integrated Pest Management IPM</div>
+        <div class="cert-iss">Premium Pest Control</div><span class="cert-dt">Oct 2025</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-        <div>
-          <div class="cert-name">Highfield Level 4 – سلامة الغذاء للتصنيع</div>
-          <div class="cert-issuer">American Express SafeKey / د. مؤمن مبروك</div>
-          <div class="cert-date">أغسطس 2024</div>
-        </div>
+      <div class="cert-card ca"><span class="cert-ico">🎓</span>
+        <div class="cert-name ar-only">Highfield Level 4 – سلامة الغذاء</div>
+        <div class="cert-name en-only">Highfield Level 4 – Food Safety Mgmt</div>
+        <div class="cert-iss">American Express SafeKey</div><span class="cert-dt">Aug 2024</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">✅</div>
-        <div>
-          <div class="cert-name">HACCP – تحليل المخاطر ونقاط التحكم الحرجة</div>
-          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
-          <div class="cert-date">أكتوبر 2023</div>
-        </div>
+      <div class="cert-card cg"><span class="cert-ico">✅</span>
+        <div class="cert-name">HACCP – Hazard Analysis CCP</div>
+        <div class="cert-iss">EOS – Egyptian Org. for Standards</div><span class="cert-dt">Oct 2023</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">📋</div>
-        <div>
-          <div class="cert-name">PRPs – البرامج التمهيدية</div>
-          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
-          <div class="cert-date">أكتوبر 2023</div>
-        </div>
+      <div class="cert-card ct"><span class="cert-ico">📋</span>
+        <div class="cert-name ar-only">PRPs – البرامج التمهيدية</div>
+        <div class="cert-name en-only">PRPs – Prerequisite Programs</div>
+        <div class="cert-iss">EOS</div><span class="cert-dt">Oct 2023</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">🌐</div>
-        <div>
-          <div class="cert-name">ISO 22000:2018 – نظام إدارة سلامة الغذاء</div>
-          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
-          <div class="cert-date">يونيو 2023</div>
-        </div>
+      <div class="cert-card cb"><span class="cert-ico">🌐</span>
+        <div class="cert-name">ISO 22000:2018 – FSMS</div>
+        <div class="cert-iss">EOS</div><span class="cert-dt">Jun 2023</span>
       </div>
-      <div class="cert-card">
-        <div class="cert-icon">⚙️</div>
-        <div>
-          <div class="cert-name">GMP – ممارسات التصنيع الجيدة</div>
-          <div class="cert-issuer">الهيئة المصرية للتوحيد القياسي EOS</div>
-          <div class="cert-date">مارس 2022</div>
-        </div>
+      <div class="cert-card cp"><span class="cert-ico">⚙️</span>
+        <div class="cert-name ar-only">GMP – ممارسات التصنيع الجيدة</div>
+        <div class="cert-name en-only">GMP – Good Manufacturing Practices</div>
+        <div class="cert-iss">EOS</div><span class="cert-dt">Mar 2022</span>
       </div>
     </div>
   </div>
@@ -546,13 +525,38 @@
 <!-- EDUCATION -->
 <section class="education">
   <div class="container">
-    <div class="section-tag">التعليم</div>
-    <h2 class="section-title">المؤهل الأكاديمي</h2>
-    <div class="edu-card">
-      <div class="edu-degree">بكالوريوس العلوم الزراعية</div>
-      <div class="edu-major">تخصص: تكنولوجيا تصنيع الغذاء</div>
-      <div class="edu-school">كلية الزراعة – جامعة القاهرة</div>
-      <div class="edu-year">تخرج: يونيو 2023</div>
+    <div class="sec-label purple"><span class="line"></span><span class="ar-only">التعليم</span><span class="en-only">Education</span></div>
+    <h2 class="sec-title ar-only">المؤهل الأكاديمي</h2>
+    <h2 class="sec-title en-only">Academic Background</h2>
+    <div class="edu-wrap">
+      <div class="edu-card">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree ar-only">بكالوريوس العلوم الزراعية</div>
+        <div class="edu-degree en-only">Bachelor of Agricultural Sciences</div>
+        <div class="edu-major ar-only">تخصص: تكنولوجيا تصنيع الغذاء</div>
+        <div class="edu-major en-only">Major: Food Processing Technology</div>
+        <div class="edu-school ar-only">كلية الزراعة – جامعة القاهرة</div>
+        <div class="edu-school en-only">Faculty of Agriculture – Cairo University</div>
+        <div class="edu-year">Graduated: June 2023</div>
+      </div>
+      <div class="edu-langs">
+        <div class="lang-head ar-only">اللغات</div>
+        <div class="lang-head en-only">Languages</div>
+        <div class="lang-item">
+          <div class="lang-name ar-only">العربية (اللغة الأم)</div>
+          <div class="lang-name en-only">Arabic (Native)</div>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%;background:linear-gradient(90deg,#4ade80,#2dd4bf)"></div></div>
+          <div class="lang-lvl ar-only">مستوى احترافي كامل</div>
+          <div class="lang-lvl en-only">Full Professional Proficiency</div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-name ar-only">الإنجليزية (متوسط)</div>
+          <div class="lang-name en-only">English (Intermediate)</div>
+          <div class="lang-bar"><div class="lang-fill" style="width:60%;background:linear-gradient(90deg,#60a5fa,#a78bfa)"></div></div>
+          <div class="lang-lvl ar-only">مستوى متوسط</div>
+          <div class="lang-lvl en-only">Intermediate Level</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -560,36 +564,55 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="section-tag">تواصل معي</div>
-    <h2 class="section-title">بيانات التواصل</h2>
+    <div class="sec-label green"><span class="line"></span><span class="ar-only">تواصل معي</span><span class="en-only">Get In Touch</span></div>
+    <h2 class="sec-title ar-only">بيانات التواصل</h2>
+    <h2 class="sec-title en-only">Contact Information</h2>
     <div class="contact-grid">
-      <a class="contact-item" href="tel:+966510330283">
-        <div class="c-icon">📞</div>
-        <div class="c-title">الهاتف</div>
-        <div class="c-value">+966 51 033 0283</div>
+      <a class="con-card" href="tel:+966510330283">
+        <div class="con-ico cig">📞</div>
+        <div><div class="con-label ar-only">الهاتف</div><div class="con-label en-only">Phone</div><div class="con-val">+966 51 033 0283</div></div>
       </a>
-      <a class="contact-item" href="mailto:abdelzaher123zaher@gmail.com">
-        <div class="c-icon">📧</div>
-        <div class="c-title">البريد الإلكتروني</div>
-        <div class="c-value">abdelzaher123zaher@gmail.com</div>
+      <a class="con-card" href="mailto:abdelzaher123zaher@gmail.com">
+        <div class="con-ico cit">📧</div>
+        <div><div class="con-label ar-only">البريد الإلكتروني</div><div class="con-label en-only">Email</div><div class="con-val" style="font-size:0.78rem">abdelzaher123zaher@gmail.com</div></div>
       </a>
-      <a class="contact-item" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
-        <div class="c-icon">💼</div>
-        <div class="c-title">LinkedIn</div>
-        <div class="c-value">linkedin.com/in/abdelzaher-khairy</div>
+      <a class="con-card" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
+        <div class="con-ico cib">💼</div>
+        <div><div class="con-label">LinkedIn</div><div class="con-val">abdelzaher-khairy</div></div>
       </a>
-      <div class="contact-item">
-        <div class="c-icon">📍</div>
-        <div class="c-title">الموقع</div>
-        <div class="c-value">الأحساء، المنطقة الشرقية، السعودية</div>
+      <div class="con-card">
+        <div class="con-ico cip">📍</div>
+        <div><div class="con-label ar-only">الموقع</div><div class="con-label en-only">Location</div>
+        <div class="con-val ar-only">الأحساء، السعودية</div><div class="con-val en-only">Al Ahsa, Saudi Arabia</div></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>صُمم بـ ❤ لـ <span>عبد الظاهر خيري</span> · متخصص جودة وسلامة الغذاء · 2026</p>
+  <div class="footer-inner">
+    <div class="footer-name">Abdel Zaher Khairy</div>
+    <div class="footer-copy ar-only">متخصص جودة وسلامة الغذاء · 2026</div>
+    <div class="footer-copy en-only">Food Quality & Safety Specialist · 2026</div>
+    <div class="footer-dots">
+      <span style="background:#4ade80"></span>
+      <span style="background:#2dd4bf"></span>
+      <span style="background:#60a5fa"></span>
+      <span style="background:#a78bfa"></span>
+      <span style="background:#fbbf24"></span>
+    </div>
+  </div>
 </footer>
 
+<script>
+function setLang(lang) {
+  const root = document.getElementById('html-root');
+  root.setAttribute('lang', lang);
+  root.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+  document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+</script>
 </body>
 </html>
