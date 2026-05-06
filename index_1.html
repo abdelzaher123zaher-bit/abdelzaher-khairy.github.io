@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Abdel Zaher Khairy - Food Quality & Safety Specialist experienced in HACCP, ISO 22000, FSSC 22000, GMP, SPC and food production quality systems." />
+  <title>Abdel Zaher Khairy | Food Quality & Safety Specialist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#07111f;--ink2:#0b1b31;--panel:#10223d;--soft:#f6f8fb;--white:#fff;
+      --muted:#64748b;--line:rgba(15,23,42,.1);
+      --green:#18a957;--green2:#0f8f69;--mint:#43e1b4;--blue:#3178ee;--sky:#67b7ff;
+      --violet:#8758ff;--amber:#f5a524;--rose:#f0446e;
+      --r:18px;--r2:26px;--shadow:0 22px 60px rgba(7,17,31,.14);
+      --ar:'Cairo','Tajawal',sans-serif;--en:'Poppins',sans-serif;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:var(--ar);background:var(--soft);color:var(--ink);overflow-x:hidden}
+    html[lang="en"]{direction:ltr}
+    html[lang="en"] body{font-family:var(--en)}
+    .ao{display:block}.eo{display:none}span.ao{display:inline}span.eo{display:none}
+    html[lang="en"] .ao{display:none}html[lang="en"] .eo{display:block}
+    html[lang="en"] span.ao{display:none}html[lang="en"] span.eo{display:inline}
+
+    .nav{position:fixed;top:0;inset-inline:0;z-index:50;padding:14px clamp(16px,4vw,46px);display:flex;align-items:center;justify-content:space-between;background:rgba(7,17,31,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.09)}
+    .brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none}
+    .mark{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-family:var(--en);font-weight:800;background:linear-gradient(135deg,var(--green),var(--mint),var(--blue));box-shadow:0 10px 28px rgba(24,169,87,.28)}
+    .brand span:last-child{font-family:var(--en);font-weight:800;letter-spacing:.4px}
+    .nav-r{display:flex;align-items:center;gap:22px}
+    .links{display:flex;align-items:center;gap:18px;list-style:none}
+    .links a{color:rgba(255,255,255,.68);font-size:.82rem;font-weight:700;text-decoration:none;transition:.2s}
+    .links a:hover{color:#fff}
+    .ltog{display:flex;gap:4px;padding:4px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13)}
+    .lbtn{border:0;border-radius:999px;background:transparent;color:rgba(255,255,255,.58);padding:7px 14px;font-size:.75rem;font-weight:800;cursor:pointer}
+    .lbtn.act{background:var(--amber);color:var(--ink)}
+
+    .hero{min-height:100vh;position:relative;display:flex;align-items:center;padding:112px clamp(18px,4vw,46px) 54px;background:
+      radial-gradient(circle at 18% 22%,rgba(49,120,238,.32),transparent 34%),
+      radial-gradient(circle at 84% 10%,rgba(24,169,87,.28),transparent 33%),
+      linear-gradient(135deg,#06101f 0%,#0b1b31 55%,#101c35 100%);overflow:hidden}
+    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+    .hero::after{content:"";position:absolute;inset:auto -10% -25% -10%;height:42%;background:linear-gradient(90deg,rgba(24,169,87,.3),rgba(49,120,238,.28),rgba(135,88,255,.28));filter:blur(80px);opacity:.62}
+    .hero-in{position:relative;z-index:2;width:100%;max-width:1220px;margin:auto;display:grid;grid-template-columns:minmax(0,1.14fr) minmax(340px,.86fr);gap:46px;align-items:center}
+    .status{display:inline-flex;align-items:center;gap:9px;width:max-content;padding:8px 17px;border-radius:999px;background:rgba(67,225,180,.11);border:1px solid rgba(67,225,180,.26);color:#9ff7d8;font-size:.78rem;font-weight:800;margin-bottom:20px}
+    .pulse{width:8px;height:8px;border-radius:50%;background:#49e58e;box-shadow:0 0 0 0 rgba(73,229,142,.7);animation:pulse 1.8s infinite}
+    @keyframes pulse{70%{box-shadow:0 0 0 11px rgba(73,229,142,0)}100%{box-shadow:0 0 0 0 rgba(73,229,142,0)}}
+    h1{color:#fff;font-family:'Tajawal',var(--ar);font-weight:900;font-size:clamp(2.45rem,5.2vw,5.1rem);line-height:.98;letter-spacing:0;margin-bottom:16px}
+    html[lang="en"] h1{font-family:var(--en);font-size:clamp(2.25rem,4.9vw,4.7rem);font-weight:800}
+    .role{display:block;margin-top:14px;font-size:clamp(1.08rem,2.2vw,1.7rem);line-height:1.25;background:linear-gradient(90deg,#56f39c,#43e1b4,#67b7ff,#b39aff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .lead{max-width:660px;color:rgba(255,255,255,.68);font-size:1rem;line-height:1.95;margin-bottom:25px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-bottom:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:12px 22px;border-radius:999px;text-decoration:none;font-size:.88rem;font-weight:800;border:1px solid transparent;transition:.22s}
+    .btn-main{color:#fff;background:linear-gradient(135deg,var(--green),var(--green2));box-shadow:0 14px 30px rgba(24,169,87,.28)}
+    .btn-main:hover,.btn-ghost:hover{transform:translateY(-2px)}
+    .btn-ghost{color:rgba(255,255,255,.86);background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15)}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:7px 12px;border-radius:999px;color:#dff7ff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);font-family:var(--en);font-size:.72rem;font-weight:800}
+    .profile{position:relative}
+    .profile-card{position:relative;border-radius:32px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,.055));border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.34);overflow:hidden}
+    .profile-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(67,225,180,.26),transparent 34%),radial-gradient(circle at 15% 90%,rgba(135,88,255,.22),transparent 32%)}
+    .portrait{position:relative;min-height:405px;border-radius:24px;background:linear-gradient(150deg,#f8fbff,#dffdf2 55%,#dcecff);overflow:hidden;display:grid;place-items:center}
+    .portrait svg{width:100%;max-width:360px;filter:drop-shadow(0 24px 30px rgba(7,17,31,.18))}
+    .badge{position:absolute;inset:auto 20px 20px 20px;padding:15px 18px;border-radius:18px;background:rgba(7,17,31,.88);color:#fff;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(12px)}
+    .badge strong{display:block;font-family:var(--en);font-size:.98rem}
+    .badge span{color:rgba(255,255,255,.62);font-size:.76rem}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+    .stat{padding:16px 8px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);text-align:center;color:#fff}
+    .stat b{display:block;font-family:var(--en);font-size:1.8rem;line-height:1;background:linear-gradient(90deg,#56f39c,#67b7ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .stat span{font-size:.7rem;color:rgba(255,255,255,.45)}
+
+    section{padding:82px clamp(18px,4vw,46px)}
+    .con{max-width:1200px;margin:0 auto}
+    .sec-head{max-width:760px;margin-bottom:34px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--green2);font-family:var(--en);font-size:.72rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px}
+    .eyebrow::before{content:"";width:30px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--mint))}
+    h2{font-family:'Tajawal',var(--ar);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;line-height:1.12;margin-bottom:10px;color:var(--ink)}
+    html[lang="en"] h2{font-family:var(--en);font-weight:800}
+    .sub{color:var(--muted);line-height:1.8;font-size:.98rem}
+
+    .about{background:#fff}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:start}
+    .story{padding:30px;border-radius:var(--r2);background:linear-gradient(135deg,#f8fffb,#eef9ff);border:1px solid var(--line)}
+    .story p{color:#334155;line-height:2;font-size:1rem}
+    .mini-board{margin-bottom:22px;border-radius:22px;overflow:hidden;background:#eafff4;border:1px solid rgba(24,169,87,.14)}
+    .skills{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .skill{display:flex;align-items:center;gap:9px;min-height:47px;padding:11px 14px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:0 10px 24px rgba(15,23,42,.04);font-size:.84rem;font-weight:800;color:#172033}
+    .skill::before{content:"";width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));box-shadow:0 0 0 5px rgba(24,169,87,.1)}
+
+    .dark{background:linear-gradient(135deg,#07111f,#0b1d35 55%,#12213d);color:#fff;position:relative;overflow:hidden}
+    .dark::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:26px 26px;opacity:.55}
+    .dark .con{position:relative;z-index:1}.dark h2{color:#fff}.dark .sub{color:rgba(255,255,255,.52)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border-radius:var(--r2);background:#fff;border:1px solid var(--line);box-shadow:0 16px 36px rgba(15,23,42,.07);overflow:hidden;transition:.25s}
+    .card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+    .dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);box-shadow:none}
+    .lab-card{padding:24px}
+    .icon{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;margin-bottom:16px;background:linear-gradient(135deg,rgba(67,225,180,.18),rgba(49,120,238,.14));font-size:1.65rem}
+    .card h3{font-size:1.03rem;line-height:1.45;margin-bottom:8px;color:var(--ink);font-weight:900}
+    .dark .card h3{color:#fff}
+    .card p{font-size:.85rem;line-height:1.75;color:#536174}.dark .card p{color:rgba(255,255,255,.58)}
+
+    .projects{background:var(--soft)}
+    .project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .project .visual{height:205px;display:grid;place-items:center;background:linear-gradient(135deg,#edfff7,#edf5ff)}
+    .project .visual svg{width:100%;height:100%}
+    .project-body{padding:24px}
+    .tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;margin-bottom:13px;background:#e9fff3;color:#0d7d50;font-size:.72rem;font-weight:900}
+    .project h3{font-family:'Tajawal',var(--ar);font-size:1.18rem}
+    html[lang="en"] .project h3{font-family:var(--en)}
+    .pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+    .pill{padding:5px 10px;border-radius:999px;background:#f1f5f9;color:#334155;border:1px solid var(--line);font-family:var(--en);font-size:.68rem;font-weight:800}
+
+    .exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .exp{padding:25px}
+    .exp-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:13px}
+    .date{white-space:nowrap;border-radius:999px;padding:6px 11px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.55);font-family:var(--en);font-size:.7rem;font-weight:800}
+    .company{font-size:.82rem;color:#8ff0c2;font-weight:800;margin-bottom:14px}
+    .exp ul{list-style:none;display:grid;gap:8px}
+    .exp li{position:relative;padding-inline-start:18px;color:rgba(255,255,255,.6);font-size:.84rem;line-height:1.65}
+    .exp li::before{content:"";position:absolute;inset-inline-start:0;top:.7em;width:7px;height:7px;border-radius:50%;background:var(--mint)}
+
+    .certs{background:#fff}
+    .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .cert{padding:20px;border-radius:18px;background:linear-gradient(135deg,#fff,#f7fbff);border:1px solid var(--line);position:relative;overflow:hidden}
+    .cert::after{content:"";position:absolute;inset:auto -18px -22px auto;width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--blue));opacity:.12}
+    .cert i{font-style:normal;font-size:1.8rem;display:block;margin-bottom:11px}
+    .cert b{display:block;font-size:.9rem;line-height:1.5;margin-bottom:5px}
+    .cert span{display:block;color:var(--muted);font-size:.76rem}.cert small{display:inline-block;margin-top:9px;color:#0d7d50;background:#e9fff3;border-radius:999px;padding:4px 10px;font-family:var(--en);font-weight:800}
+
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+    .edu-card,.lang-card{padding:30px;border-radius:var(--r2);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11)}
+    .edu-card h3{color:#fff;font-size:1.35rem;margin-bottom:9px}.edu-card p{color:rgba(255,255,255,.62);line-height:1.8}
+    .lang{margin-top:18px}.lang-name{display:flex;justify-content:space-between;color:#fff;font-weight:800;font-size:.9rem;margin-bottom:8px}
+    .bar{height:8px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--green),var(--mint),var(--blue))}
+
+    .contact{background:linear-gradient(135deg,#f7fff9,#f5f8ff)}
+    .contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px}
+    .contact-card{display:flex;align-items:center;gap:14px;padding:18px;border-radius:18px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 28px rgba(15,23,42,.05);text-decoration:none;color:var(--ink)}
+    .contact-card .ci{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,#e9fff3,#eaf2ff);font-size:1.25rem}
+    .label{color:#94a3b8;text-transform:uppercase;font-family:var(--en);font-size:.68rem;font-weight:800;letter-spacing:1px}.value{font-weight:900;font-size:.9rem;margin-top:2px}
+    footer{background:#07111f;color:rgba(255,255,255,.52);padding:28px clamp(18px,4vw,46px)}
+    .foot{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.foot b{font-family:var(--en);color:#fff}
+
+    /* ══ ANIMATED BG ══ */
+    .blob-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+    .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.2;animation:blobmove 12s ease-in-out infinite;}
+    .blob1{width:520px;height:520px;background:radial-gradient(circle,#18a957,#43e1b4);top:-120px;right:-100px;}
+    .blob2{width:420px;height:420px;background:radial-gradient(circle,#3178ee,#8758ff);bottom:-80px;left:-80px;animation-delay:-4s;}
+    .blob3{width:320px;height:320px;background:radial-gradient(circle,#f5a524,#f0446e);top:40%;left:35%;animation-delay:-8s;}
+    .blob4{width:240px;height:240px;background:radial-gradient(circle,#43e1b4,#3178ee);bottom:18%;right:8%;animation-delay:-2s;}
+    @keyframes blobmove{0%,100%{transform:translate(0,0) scale(1);}25%{transform:translate(40px,-30px) scale(1.08);}50%{transform:translate(-20px,40px) scale(.95);}75%{transform:translate(-40px,-20px) scale(1.05);}}
+
+    .rings{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+    .ring{position:absolute;border-radius:50%;border:1px solid;animation:ringspin linear infinite;}
+    .ring1{width:700px;height:700px;top:50%;left:50%;margin-top:-350px;margin-left:-350px;border-color:rgba(67,225,180,.07);animation-duration:32s;}
+    .ring2{width:500px;height:500px;top:50%;left:50%;margin-top:-250px;margin-left:-250px;border-color:rgba(49,120,238,.09);animation-duration:22s;animation-direction:reverse;}
+    .ring3{width:300px;height:300px;top:50%;left:50%;margin-top:-150px;margin-left:-150px;border-color:rgba(135,88,255,.09);animation-duration:14s;}
+    @keyframes ringspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+    .scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(67,225,180,.5),transparent);pointer-events:none;z-index:1;animation:scanmove 7s linear infinite;}
+    @keyframes scanmove{0%{top:-4px;opacity:0;}5%{opacity:1;}95%{opacity:.7;}100%{top:100%;opacity:0;}}
+
+    .hex-bg{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34z' fill='none' stroke='%2343e1b4' stroke-width='1.2'/%3E%3Cpath d='M28 100L0 84V50l28-16 28 16v34z' fill='none' stroke='%2343e1b4' stroke-width='1.2'/%3E%3C/svg%3E");
+      background-size:56px 100px;}
+
+    .data-lines{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+    .dline{position:absolute;width:1px;background:linear-gradient(to bottom,transparent,rgba(67,225,180,.35),transparent);animation:dflow linear infinite;}
+    @keyframes dflow{0%{top:-30%;opacity:0;}40%{opacity:1;}100%{top:130%;opacity:0;}}
+
+    .particles-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
+    .pt{position:absolute;border-radius:50%;animation:ptrise linear infinite;}
+    @keyframes ptrise{0%{transform:translateY(0) scale(1);opacity:0;}10%{opacity:1;}85%{opacity:.7;}100%{transform:translateY(-110vh) scale(.4);opacity:0;}}
+
+    .profile-card{animation:glowpulse 4s ease-in-out infinite;}
+    @keyframes glowpulse{0%,100%{box-shadow:0 30px 80px rgba(0,0,0,.34);}50%{box-shadow:0 30px 80px rgba(0,0,0,.34),0 0 50px 10px rgba(67,225,180,.14),0 0 100px 25px rgba(49,120,238,.07);}}
+
+    .shimmer{background:linear-gradient(90deg,#56f39c,#43e1b4,#67b7ff,#b39aff,#56f39c);background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmerx 4s linear infinite;}
+    @keyframes shimmerx{to{background-position:300% center;}}
+
+    .reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease;}
+    .reveal.vis{opacity:1;transform:translateY(0);}
+
+    .card:hover{box-shadow:0 0 0 1.5px rgba(67,225,180,.3),0 22px 50px rgba(24,169,87,.15)!important;}
+
+    @keyframes pulse{70%{box-shadow:0 0 0 12px rgba(73,229,142,0)}100%{box-shadow:0 0 0 0 rgba(73,229,142,0)}}
+
+    @media(max-width:980px){
+      .links{display:none}.hero-in,.about-grid,.edu-grid{grid-template-columns:1fr}.profile{order:-1}.portrait{min-height:340px}.cards{grid-template-columns:repeat(2,1fr)}.project-grid,.exp-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .nav{padding:10px 14px}.brand span:last-child{display:none}.hero{padding-top:94px}.hero-actions .btn{width:100%}.cards,.cert-grid,.contact-grid,.skills{grid-template-columns:1fr}.project .visual{height:180px}.stats{grid-template-columns:1fr 1fr 1fr}.stat b{font-size:1.45rem}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Abdel Zaher Khairy"><span class="mark">AZK</span><span>Abdel Zaher Khairy</span></a>
+    <div class="nav-r">
+      <ul class="links">
+        <li><a href="#about"><span class="ao">عني</span><span class="eo">About</span></a></li>
+        <li><a href="#lab"><span class="ao">المهارات</span><span class="eo">Skills</span></a></li>
+        <li><a href="#projects"><span class="ao">المشاريع</span><span class="eo">Projects</span></a></li>
+        <li><a href="#experience"><span class="ao">الخبرات</span><span class="eo">Experience</span></a></li>
+        <li><a href="#contact"><span class="ao">تواصل</span><span class="eo">Contact</span></a></li>
+      </ul>
+      <div class="ltog" aria-label="Language selector">
+        <button class="lbtn act" id="bar" onclick="setL('ar')" type="button">عر</button>
+        <button class="lbtn" id="ben" onclick="setL('en')" type="button">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <!-- animated bg -->
+      <div class="blob-wrap"><div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div><div class="blob blob4"></div></div>
+      <div class="rings"><div class="ring ring1"></div><div class="ring ring2"></div><div class="ring ring3"></div></div>
+      <div class="hex-bg"></div>
+      <div class="scan"></div>
+      <div class="data-lines" id="dlines"></div>
+      <div class="particles-wrap" id="particles"></div>
+      <div class="hero-in">
+        <div>
+          <div class="status"><span class="pulse"></span><span class="ao">متاح فوراً · إقامة قابلة للتحويل · جاهز للتحديات الصناعية</span><span class="eo">Available Immediately · Transferable Iqama · Ready for Industrial Challenges</span></div>
+          <h1>
+            <span class="ao">عبد الظاهر خيري</span>
+            <span class="eo">Abdel Zaher Khairy</span>
+            <span class="role shimmer ao">أحوّل سلامة الغذاء إلى نظام عمل قابل للقياس والتحسين</span>
+            <span class="role shimmer eo">I turn food safety into measurable, improvable operating systems</span>
+          </h1>
+          <p class="lead ao">متخصص جودة وسلامة غذاء بخبرة عملية في المطابخ المركزية والمشروبات والمخابز الصناعية. أطبق HACCP وISO 22000 وFSSC 22000 بمنهجية عملية تربط بين الامتثال، خفض الهدر، ثبات الجودة، وحماية المستهلك.</p>
+          <p class="lead eo">Food Quality & Safety Specialist with hands-on experience across central kitchens, beverages and industrial bakeries. I apply HACCP, ISO 22000 and FSSC 22000 with a practical mindset that connects compliance, waste reduction, consistency and consumer protection.</p>
+          <div class="hero-actions">
+            <a class="btn btn-main" href="mailto:abdelzaher123zaher@gmail.com"><span>✉</span><span class="ao">ابدأ تواصل مهني</span><span class="eo">Start a Conversation</span></a>
+            <a class="btn btn-ghost" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-ghost" href="tel:+966510330283">+966 51 033 0283</a>
+          </div>
+          <div class="chips">
+            <span class="chip">HACCP</span><span class="chip">ISO 22000:2018</span><span class="chip">FSSC 22000 v6</span><span class="chip">GMP</span><span class="chip">PRPs</span><span class="chip">SPC</span><span class="chip">RCA</span>
+          </div>
+        </div>
+        <aside class="profile" aria-label="Professional profile visual">
+          <div class="profile-card">
+            <div class="portrait">
+              <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Food safety specialist illustration">
+                <defs>
+                  <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#dff8ec"/></linearGradient>
+                  <linearGradient id="ring" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18a957"/><stop offset=".5" stop-color="#43e1b4"/><stop offset="1" stop-color="#3178ee"/></linearGradient>
+                </defs>
+                <circle cx="180" cy="172" r="118" fill="url(#ring)" opacity=".16"/>
+                <circle cx="180" cy="156" r="95" fill="#10223d"/>
+                <circle cx="180" cy="122" r="44" fill="#f1c6a4"/>
+                <path d="M132 118c6-39 88-45 97-2-16-15-54-10-72-9-11 1-18 4-25 11z" fill="#2b1909"/>
+                <circle cx="164" cy="125" r="4" fill="#1d1209"/><circle cx="196" cy="125" r="4" fill="#1d1209"/>
+                <path d="M164 143q16 14 32 0" fill="none" stroke="#b66e4b" stroke-width="4" stroke-linecap="round"/>
+                <path d="M103 304c11-70 42-111 77-111s66 41 77 111z" fill="url(#coat)"/>
+                <path d="M147 201l33 48 33-48" fill="#effaf5" stroke="#9ae6bf" stroke-width="2"/>
+                <rect x="171" y="219" width="18" height="68" rx="9" fill="#18a957"/>
+                <rect x="113" y="258" width="58" height="32" rx="10" fill="#fff" opacity=".8"/><text x="142" y="279" text-anchor="middle" font-size="14" font-weight="800" fill="#0f8f69" font-family="Poppins">QC</text>
+                <g fill="none" stroke="url(#ring)" stroke-width="5" stroke-linecap="round">
+                  <path d="M64 94c30-45 69-68 116-68"/><path d="M282 88c35 32 52 72 50 120"/><path d="M78 269c32 39 72 58 121 57"/>
+                </g>
+                <g font-family="Poppins" font-weight="800">
+                  <rect x="36" y="72" width="78" height="34" rx="17" fill="#fff"/><text x="75" y="94" text-anchor="middle" font-size="13" fill="#0f8f69">HACCP</text>
+                  <rect x="240" y="82" width="76" height="34" rx="17" fill="#fff"/><text x="278" y="104" text-anchor="middle" font-size="13" fill="#3178ee">ISO</text>
+                  <rect x="238" y="264" width="74" height="34" rx="17" fill="#fff"/><text x="275" y="286" text-anchor="middle" font-size="13" fill="#8758ff">SPC</text>
+                </g>
+              </svg>
+              <div class="badge"><strong>Abdel Zaher Khairy</strong><span>Food Quality & Safety Specialist</span></div>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>3+</b><span class="ao">سنوات خبرة</span><span class="eo">Years</span></div>
+            <div class="stat"><b>9</b><span class="ao">شهادات</span><span class="eo">Certifications</span></div>
+            <div class="stat"><b>4</b><span class="ao">مشاريع مؤثرة</span><span class="eo">Key Projects</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="about" reveal id="about">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Professional Edge</div>
+          <h2 class="ao">ملخص مهني أقوى من مجرد قائمة مهارات</h2><h2 class="eo">More Than a Skill List</h2>
+          <p class="sub ao">قيمة عبد الظاهر تظهر في الربط بين المعمل، خط الإنتاج، التوثيق، وسلوك الفريق داخل بيئة الغذاء الحقيقية.</p>
+          <p class="sub eo">Abdel Zaher's value shows in connecting laboratory work, production lines, documentation and team behavior in real food environments.</p>
+        </div>
+        <div class="about-grid">
+          <div class="story">
+            <div class="mini-board">
+              <svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
+                <rect width="620" height="230" fill="#edfff7"/>
+                <rect x="38" y="150" width="544" height="22" rx="11" fill="#bdf5d8"/>
+                <g fill="#18a957"><circle cx="60" cy="161" r="10"/><circle cx="560" cy="161" r="10"/></g>
+                <g>
+                  <rect x="75" y="112" width="62" height="42" rx="9" fill="#43e1b4"/><rect x="212" y="108" width="62" height="46" rx="9" fill="#67b7ff"/><rect x="350" y="111" width="62" height="43" rx="9" fill="#b39aff"/>
+                  <text x="106" y="138" text-anchor="middle" font-size="19" fill="#064e3b" font-weight="900">✓</text><text x="243" y="137" text-anchor="middle" font-size="19" fill="#123c70" font-weight="900">✓</text><text x="381" y="138" text-anchor="middle" font-size="19" fill="#3c1a79" font-weight="900">✓</text>
+                </g>
+                <rect x="455" y="54" width="96" height="88" rx="15" fill="#fff" stroke="#8de6bb" stroke-width="2"/><text x="503" y="89" text-anchor="middle" font-size="18" fill="#0f8f69" font-weight="900" font-family="Poppins">QC</text><path d="M480 111h46M480 124h32" stroke="#18a957" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="170" cy="70" r="28" fill="#f1c6a4"/><path d="M145 64c8-25 48-26 55 1-18-7-37-6-55-1z" fill="#2b1909"/><rect x="136" y="99" width="68" height="54" rx="13" fill="#fff" stroke="#8de6bb" stroke-width="2"/><rect x="199" y="103" width="44" height="52" rx="7" fill="#fff" stroke="#67b7ff" stroke-width="2"/><path d="M209 118h24M209 130h24M209 142h16" stroke="#3178ee" stroke-width="3" stroke-linecap="round"/>
+                <rect x="38" y="42" width="97" height="38" rx="19" fill="#fff"/><text x="86" y="66" text-anchor="middle" font-size="15" fill="#0f8f69" font-weight="900" font-family="Poppins">HACCP</text>
+              </svg>
+            </div>
+            <p class="ao">أعمل على بناء ثقافة جودة قابلة للتنفيذ، لا مجرد ملفات للعرض. أقرأ المخاطر من نقطة الاستلام حتى المنتج النهائي، أوثق الانحرافات بوضوح، وأقود إجراءات تصحيحية تقلل الرفض والهدر وترفع ثبات المنتج.</p>
+            <p class="eo">I build executable quality culture, not paperwork for display. I read risk from receiving to final product, document deviations clearly and drive corrective actions that reduce rejection, waste and inconsistency.</p>
+          </div>
+          <div class="skills">
+            <div class="skill">HACCP Implementation</div><div class="skill">ISO 22000:2018</div>
+            <div class="skill">FSSC 22000 v6</div><div class="skill">GMP & PRPs</div>
+            <div class="skill">SPC & Trend Analysis</div><div class="skill"><span class="ao">التقييم الحسي</span><span class="eo">Sensory Evaluation</span></div>
+            <div class="skill">Root Cause Analysis</div><div class="skill">NFSA Requirements</div>
+            <div class="skill">Moisture Analysis</div><div class="skill">Viscosity & Brix</div>
+            <div class="skill">GLC / GPLC</div><div class="skill">Python · MS Office</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" reveal id="lab">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Lab & Production</div>
+          <h2 class="ao">مهارات تحليلية تخدم قرار الإنتاج</h2><h2 class="eo">Analytical Skills That Support Production Decisions</h2>
+          <p class="sub ao">ليست القياسات أرقاماً منفصلة، بل إشارات تساعد الفريق على منع الانحراف قبل أن يتحول إلى خسارة.</p>
+          <p class="sub eo">Measurements are not isolated numbers; they are signals that help teams prevent deviation before it becomes loss.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal lab-card"><div class="icon">💧</div><h3 class="ao">تقدير الرطوبة</h3><h3 class="eo">Moisture Analysis</h3><p class="ao">ضبط جودة الدقيق، المساحيق والمنتجات الجافة عبر قياس المحتوى المائي بدقة.</p><p class="eo">Controlling flour, powders and dry product quality through accurate water content measurement.</p></article>
+          <article class="card reveal lab-card"><div class="icon">°Bx</div><h3 class="ao">البريكس والسكريات</h3><h3 class="eo">Brix & Sugars</h3><p class="ao">متابعة تركيز السكريات في العصائر والمشروبات لضمان ثبات التركيبة والطعم.</p><p class="eo">Monitoring sugar concentration in juices and beverages to maintain formula and taste consistency.</p></article>
+          <article class="card reveal lab-card"><div class="icon">〽</div><h3 class="ao">قياس اللزوجة</h3><h3 class="eo">Viscosity Measurement</h3><p class="ao">تقييم القوام وسلوك التدفق في الصلصات والمشروبات السميكة والمنتجات شبه السائلة.</p><p class="eo">Evaluating texture and flow behavior in sauces, thick beverages and semi-liquid products.</p></article>
+          <article class="card reveal lab-card"><div class="icon">⌁</div><h3>GLC / GPLC</h3><p class="ao">تحليل مركبات غذائية دقيقة مثل الأحماض الدهنية وبقايا الملوثات عند الحاجة.</p><p class="eo">Analyzing precise food compounds such as fatty acids and residues when required.</p></article>
+          <article class="card reveal lab-card"><div class="icon">🔥</div><h3 class="ao">جودة زيت القلي</h3><h3 class="eo">Frying Oil Quality</h3><p class="ao">متابعة مؤشرات التدهور والأكسدة لحماية المنتج والمستهلك.</p><p class="eo">Tracking degradation and oxidation indicators to protect both product and consumer.</p></article>
+          <article class="card reveal lab-card"><div class="icon">👁</div><h3 class="ao">التقييم الحسي</h3><h3 class="eo">Sensory Evaluation</h3><p class="ao">قراءة المنتج من منظور المستهلك: مظهر، رائحة، ملمس، طعم وقبول عام.</p><p class="eo">Reading the product from the consumer perspective: appearance, aroma, texture, taste and acceptance.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" reveal id="projects">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Impact Work</div>
+          <h2 class="ao">مشاريع تعرض طريقة التفكير والنتيجة</h2><h2 class="eo">Projects That Show Thinking and Results</h2>
+          <p class="sub ao">كل مشروع هنا يوضح مزيجاً من تطوير المنتج، تحليل المخاطر، وتحسين التشغيل.</p>
+          <p class="sub eo">Each project highlights a mix of product development, risk analysis and operational improvement.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card reveal project">
+            <div class="visual"><svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="230" fill="#edfff7"/><ellipse cx="120" cy="116" rx="58" ry="76" fill="#18a957" opacity=".78"/><g fill="#064e3b" opacity=".75"><ellipse cx="96" cy="96" rx="7" ry="12"/><ellipse cx="129" cy="133" rx="7" ry="12"/><ellipse cx="143" cy="94" rx="6" ry="10"/></g><rect x="228" y="55" width="78" height="132" rx="18" fill="#7cf0ba" stroke="#18a957" stroke-width="4"/><rect x="242" y="82" width="50" height="70" rx="10" fill="#fff" opacity=".72"/><text x="267" y="111" text-anchor="middle" font-size="15" fill="#0f8f69" font-weight="900">100%</text><rect x="356" y="87" width="92" height="84" rx="16" fill="#fff" stroke="#43e1b4" stroke-width="3"/><text x="402" y="134" text-anchor="middle" font-size="32">⚗</text></svg></div>
+            <div class="project-body"><span class="tag">Product Development</span><h3 class="ao">تطوير عصير بذور البطيخ</h3><h3 class="eo">Watermelon Seed Juice Development</h3><p class="ao">تطوير منتج مبتكر قائم على بذور البطيخ مع دراسة التركيبة الغذائية، عملية الاستخراج، واختبارات الجودة والسلامة.</p><p class="eo">Developing an innovative watermelon seed product with nutritional formulation, extraction process design and quality testing.</p><div class="pills"><span class="pill">R&D</span><span class="pill">Food Safety</span><span class="pill">GLC</span></div></div>
+          </article>
+          <article class="card reveal project">
+            <div class="visual"><svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="230" fill="#fff8e6"/><rect x="62" y="70" width="106" height="96" rx="19" fill="#f5c957" stroke="#d88916" stroke-width="4"/><g fill="#a35d05" opacity=".5"><circle cx="93" cy="102" r="6"/><circle cx="129" cy="102" r="6"/><circle cx="93" cy="135" r="6"/><circle cx="129" cy="135" r="6"/></g><ellipse cx="260" cy="92" rx="31" ry="40" fill="#f5a524"/><g fill="#fff" stroke="#d7b98c"><ellipse cx="330" cy="94" rx="12" ry="25" transform="rotate(-15 330 94)"/><ellipse cx="356" cy="101" rx="12" ry="25" transform="rotate(11 356 101)"/></g><circle cx="425" cy="104" r="49" fill="#e9fff3" stroke="#18a957" stroke-width="3"/><text x="425" y="99" text-anchor="middle" font-size="17" fill="#0f8f69" font-weight="900">GLUTEN</text><text x="425" y="120" text-anchor="middle" font-size="17" fill="#0f8f69" font-weight="900">FREE</text></svg></div>
+            <div class="project-body"><span class="tag">Health Product</span><h3 class="ao">بسكويت صحي خال من الجلوتين</h3><h3 class="eo">Gluten-Free Healthy Biscuit</h3><p class="ao">صياغة بسكويت من دقيق الحمص والأرز كخيار صحي للفئات الحساسة للجلوتين والباحثين عن بدائل طبيعية.</p><p class="eo">Formulating chickpea and rice flour biscuits for gluten-sensitive consumers and natural food alternatives.</p><div class="pills"><span class="pill">Recipe Design</span><span class="pill">Sensory</span><span class="pill">Gluten-Free</span></div></div>
+          </article>
+          <article class="card reveal project">
+            <div class="visual"><svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="230" fill="#edf5ff"/><g font-weight="900" font-size="14" fill="#fff"><rect x="32" y="45" width="90" height="43" rx="11" fill="#3178ee"/><text x="77" y="72" text-anchor="middle">Receive</text><rect x="158" y="45" width="90" height="43" rx="11" fill="#4d91f5"/><text x="203" y="72" text-anchor="middle">Store</text><rect x="284" y="45" width="90" height="43" rx="11" fill="#67b7ff"/><text x="329" y="72" text-anchor="middle">Prep</text><rect x="410" y="45" width="90" height="43" rx="11" fill="#93caff"/><text x="455" y="72" text-anchor="middle" fill="#123c70">Cook</text></g><g fill="#f0446e"><circle cx="77" cy="111" r="20"/><circle cx="329" cy="111" r="20"/></g><text x="77" y="117" text-anchor="middle" fill="#fff" font-size="13" font-weight="900">CCP</text><text x="329" y="117" text-anchor="middle" fill="#fff" font-size="13" font-weight="900">CCP</text><path d="M48 185l62-27 64 17 64-36 64 26 63-43 64 32" fill="none" stroke="#3178ee" stroke-width="5" stroke-linecap="round"/></svg></div>
+            <div class="project-body"><span class="tag">Food Safety System</span><h3 class="ao">خطة HACCP للمطبخ المركزي</h3><h3 class="eo">Central Kitchen HACCP Plan</h3><p class="ao">تصميم خطة شاملة تشمل تحليل المخاطر، تحديد نقاط التحكم الحرجة، حدود حرجة، مراقبة وإجراءات تصحيحية.</p><p class="eo">Building a complete plan covering hazard analysis, CCPs, critical limits, monitoring and corrective actions.</p><div class="pills"><span class="pill">HACCP</span><span class="pill">Documentation</span><span class="pill">Risk Analysis</span></div></div>
+          </article>
+          <article class="card reveal project">
+            <div class="visual"><svg viewBox="0 0 520 230" xmlns="http://www.w3.org/2000/svg"><rect width="520" height="230" fill="#f4efff"/><rect x="40" y="98" width="440" height="16" rx="8" fill="#c9bbff"/><g><rect x="66" y="62" width="42" height="44" rx="9" fill="#8758ff"/><text x="87" y="91" fill="#fff" text-anchor="middle" font-size="20">✓</text><rect x="132" y="62" width="42" height="44" rx="9" fill="#f0446e"/><text x="153" y="91" fill="#fff" text-anchor="middle" font-size="20">×</text><path d="M215 84h70" stroke="#8758ff" stroke-width="7" stroke-linecap="round"/><rect x="333" y="62" width="42" height="44" rx="9" fill="#18a957"/><text x="354" y="91" fill="#fff" text-anchor="middle" font-size="20">✓</text><rect x="397" y="62" width="42" height="44" rx="9" fill="#18a957"/><text x="418" y="91" fill="#fff" text-anchor="middle" font-size="20">✓</text></g><rect x="66" y="141" width="152" height="58" rx="16" fill="#ffe9ee"/><text x="142" y="165" text-anchor="middle" fill="#d82350" font-size="13" font-weight="900">Before</text><text x="142" y="190" text-anchor="middle" fill="#f0446e" font-size="28" font-weight="900">12%</text><rect x="302" y="141" width="152" height="58" rx="16" fill="#e9fff3"/><text x="378" y="165" text-anchor="middle" fill="#0f8f69" font-size="13" font-weight="900">After</text><text x="378" y="190" text-anchor="middle" fill="#18a957" font-size="28" font-weight="900">3%</text></svg></div>
+            <div class="project-body"><span class="tag">Continuous Improvement</span><h3 class="ao">تقليل الفقد في علب التغليف</h3><h3 class="eo">Packaging Loss Reduction</h3><p class="ao">تحليل جذور المشكلة وتحديد نقاط الهدر وتطبيق حلول عملية أدت إلى تقليل الفقد وتحسين كفاءة التشغيل.</p><p class="eo">Root cause analysis, waste point identification and practical actions that reduced loss and improved operating efficiency.</p><div class="pills"><span class="pill">RCA</span><span class="pill">SPC</span><span class="pill">Waste Reduction</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" reveal id="experience">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Career Path</div>
+          <h2 class="ao">خبرة عملية عبر أكثر من بيئة غذائية</h2><h2 class="eo">Practical Experience Across Food Environments</h2>
+          <p class="sub ao">من الاستلام والتحضير إلى الإنتاج والتعبئة، الخبرة مبنية على متابعة يومية للتفاصيل التي تصنع الجودة.</p>
+          <p class="sub eo">From receiving and preparation to production and packaging, the experience is built on daily attention to details that create quality.</p>
+        </div>
+        <div class="exp-grid">
+          <article class="card reveal exp"><div class="exp-top"><div><h3 class="ao">متخصص سلامة الغذاء</h3><h3 class="eo">Food Safety Specialist</h3><div class="company">ISL Catering Services · Cairo</div></div><span class="date">Jun 2025 - Jan 2026</span></div><ul><li class="ao">تطبيق HACCP عبر المطبخ المركزي وخطوط المخبوزات.</li><li class="eo">Implemented HACCP across central kitchen and bakery lines.</li><li class="ao">إجراء تقييمات حسية ومخبرية ومتابعة نقاط الانحراف.</li><li class="eo">Performed sensory and lab evaluations while tracking deviations.</li></ul></article>
+          <article class="card reveal exp"><div class="exp-top"><div><h3 class="ao">مهندس جودة</h3><h3 class="eo">Quality Engineer</h3><div class="company">Aujan Coca-Cola · Giza</div></div><span class="date">Jun - Dec 2024</span></div><ul><li class="ao">تطبيق GMP وHACCP في خطوط العصائر والمشروبات.</li><li class="eo">Applied GMP and HACCP across juice and beverage lines.</li><li class="ao">متابعة البريكس واللزوجة والعمر الافتراضي ومواصفات التعبئة.</li><li class="eo">Monitored Brix, viscosity, shelf life and packaging specs.</li></ul></article>
+          <article class="card reveal exp"><div class="exp-top"><div><h3 class="ao">مهندس إنتاج متدرب</h3><h3 class="eo">Production Engineer Trainee</h3><div class="company">Marbella Food Industries · Giza</div></div><span class="date">Jul - Sep 2023</span></div><ul><li class="ao">تحليل بيانات الإنتاج وإعداد تقارير أداء يومية وأسبوعية.</li><li class="eo">Analyzed production data and prepared performance reports.</li><li class="ao">المساهمة في مشروع تقليل فقد علب التغليف.</li><li class="eo">Contributed to packaging loss reduction work.</li></ul></article>
+          <article class="card reveal exp"><div class="exp-top"><div><h3 class="ao">متدرب مراقبة جودة</h3><h3 class="eo">Quality Control Trainee</h3><div class="company">EBTC · Dokki</div></div><span class="date">Jul - Aug 2022</span></div><ul><li class="ao">فحص القمح عند الاستلام: الرطوبة والشوائب ومطابقة المواصفات.</li><li class="eo">Inspected wheat receiving: moisture, impurities and conformity.</li><li class="ao">متابعة معاملات الطحن وجودة النشا والدقيق.</li><li class="eo">Monitored milling parameters and starch/flour quality.</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="certs" reveal id="certs">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Certifications</div>
+          <h2 class="ao">شهادات تدعم المسار المهني</h2><h2 class="eo">Certifications Supporting the Career Path</h2>
+          <p class="sub ao">مزيج من أنظمة سلامة الغذاء، الصحة والسلامة، مكافحة الآفات، والبرامج التمهيدية.</p>
+          <p class="sub eo">A mix of food safety systems, health and safety, pest management and prerequisite programs.</p>
+        </div>
+        <div class="cert-grid">
+          <div class="cert"><i>🏆</i><b>FSSC 22000 v6</b><span>Food Safety System</span><small>Aug 2025</small></div>
+          <div class="cert"><i>🔬</i><b>HACCP & Root Cause Analysis</b><span>Food Safety / RCA</span><small>Nov 2025</small></div>
+          <div class="cert"><i>🛡</i><b>ISO 45001:2018</b><span>Health & Safety</span><small>Aug 2025</small></div>
+          <div class="cert"><i>🌿</i><b>Integrated Pest Management</b><span>IPM</span><small>Oct 2025</small></div>
+          <div class="cert"><i>🎓</i><b>Highfield Level 4</b><span>Food Safety Management</span><small>Aug 2024</small></div>
+          <div class="cert"><i>✅</i><b>HACCP - Hazard Analysis CCP</b><span>EOS</span><small>Oct 2023</small></div>
+          <div class="cert"><i>📋</i><b>PRPs</b><span>Prerequisite Programs</span><small>Oct 2023</small></div>
+          <div class="cert"><i>🌐</i><b>ISO 22000:2018</b><span>Food Safety Management System</span><small>Jun 2023</small></div>
+          <div class="cert"><i>⚙</i><b>GMP</b><span>Good Manufacturing Practices</span><small>Mar 2022</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" reveal>
+      <div class="con">
+        <div class="edu-grid">
+          <div class="edu-card">
+            <div style="font-size:3rem;margin-bottom:14px">🎓</div>
+            <h3 class="ao">بكالوريوس العلوم الزراعية</h3><h3 class="eo">Bachelor of Agricultural Sciences</h3>
+            <p class="ao">تخصص تكنولوجيا تصنيع الغذاء - كلية الزراعة، جامعة القاهرة. التخرج: يونيو 2023.</p>
+            <p class="eo">Major: Food Processing Technology - Faculty of Agriculture, Cairo University. Graduated: June 2023.</p>
+          </div>
+          <div class="lang-card">
+            <h3 class="ao">اللغات</h3><h3 class="eo">Languages</h3>
+            <div class="lang"><div class="lang-name"><span class="ao">العربية</span><span class="eo">Arabic</span><span>Native</span></div><div class="bar"><div class="fill" style="width:100%"></div></div></div>
+            <div class="lang"><div class="lang-name"><span class="ao">الإنجليزية</span><span class="eo">English</span><span>B1</span></div><div class="bar"><div class="fill" style="width:62%"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" reveal id="contact">
+      <div class="con">
+        <div class="sec-head">
+          <div class="eyebrow">Get In Touch</div>
+          <h2 class="ao">جاهز لفرصة تضيف قيمة حقيقية</h2><h2 class="eo">Ready for a Role That Creates Real Value</h2>
+          <p class="sub ao">متاح للفرص المهنية في المملكة العربية السعودية وخارجها.</p>
+          <p class="sub eo">Available for professional opportunities in Saudi Arabia and beyond.</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="tel:+966510330283"><span class="ci">☎</span><span><span class="label">Phone</span><span class="value">+966 51 033 0283</span></span></a>
+          <a class="contact-card" href="mailto:abdelzaher123zaher@gmail.com"><span class="ci">✉</span><span><span class="label">Email</span><span class="value">abdelzaher123zaher@gmail.com</span></span></a>
+          <a class="contact-card" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank" rel="noreferrer"><span class="ci">in</span><span><span class="label">LinkedIn</span><span class="value">abdelzaher-khairy</span></span></a>
+          <div class="contact-card"><span class="ci">⌖</span><span><span class="label">Location</span><span class="value ao">الأحساء، الشرقية، السعودية</span><span class="value eo">Al Ahsa, Eastern Province, Saudi Arabia</span></span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <b>Abdel Zaher Khairy</b>
+      <span class="ao">متخصص جودة وسلامة الغذاء · 2026</span>
+      <span class="eo">Food Quality & Safety Specialist · 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── lang toggle ── */
+    function setL(l){
+      const root=document.getElementById('html-root');
+      root.setAttribute('lang',l);
+      root.setAttribute('dir',l==='ar'?'rtl':'ltr');
+      document.getElementById('bar').classList.toggle('act',l==='ar');
+      document.getElementById('ben').classList.toggle('act',l==='en');
+    }
+
+    /* ── data lines ── */
+    (function(){
+      const wrap=document.getElementById('dlines');
+      if(!wrap)return;
+      for(let i=0;i<12;i++){
+        const d=document.createElement('div');
+        d.className='dline';
+        d.style.cssText=`left:${Math.random()*100}%;height:${80+Math.random()*140}px;animation-duration:${4+Math.random()*6}s;animation-delay:${Math.random()*8}s`;
+        wrap.appendChild(d);
+      }
+    })();
+
+    /* ── floating particles ── */
+    (function(){
+      const wrap=document.getElementById('particles');
+      if(!wrap)return;
+      const colors=['rgba(67,225,180,','rgba(49,120,238,','rgba(135,88,255,','rgba(245,165,36,','rgba(240,68,110,'];
+      for(let i=0;i<22;i++){
+        const p=document.createElement('div');
+        p.className='pt';
+        const c=colors[Math.floor(Math.random()*colors.length)];
+        const sz=2+Math.random()*5;
+        p.style.cssText=`left:${Math.random()*100}%;bottom:${-10+Math.random()*20}px;width:${sz}px;height:${sz}px;background:${c}0.8);animation-duration:${6+Math.random()*10}s;animation-delay:${Math.random()*10}s;box-shadow:0 0 ${sz*2}px ${c}0.6)`;
+        wrap.appendChild(p);
+      }
+    })();
+
+    /* ── scroll reveal ── */
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');}});
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    /* ── number counters ── */
+    function animateCounter(el,target,suffix=''){
+      let start=0;
+      const dur=1800;
+      const step=ts=>{
+        if(!start)start=ts;
+        const prog=Math.min((ts-start)/dur,1);
+        const ease=1-Math.pow(1-prog,3);
+        el.textContent=Math.floor(ease*target)+(prog<1?'':suffix);
+        if(prog<1)requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    const counterObs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const el=e.target;
+          const val=parseInt(el.dataset.val);
+          const suf=el.dataset.suf||'';
+          animateCounter(el,val,suf);
+          counterObs.unobserve(el);
+        }
+      });
+    },{threshold:.5});
+    document.querySelectorAll('[data-val]').forEach(el=>counterObs.observe(el));
+
+    /* ── mouse parallax on hero blobs ── */
+    document.addEventListener('mousemove',e=>{
+      const mx=(e.clientX/window.innerWidth-.5)*2;
+      const my=(e.clientY/window.innerHeight-.5)*2;
+      document.querySelectorAll('.blob').forEach((b,i)=>{
+        const f=(i+1)*8;
+        b.style.transform=`translate(${mx*f}px,${my*f}px) scale(1)`;
+      });
+    });
+
+    /* ── cursor glow follow ── */
+    const glow=document.createElement('div');
+    glow.style.cssText='position:fixed;pointer-events:none;z-index:9999;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(67,225,180,.07),transparent 70%);transform:translate(-50%,-50%);transition:left .15s,top .15s;';
+    document.body.appendChild(glow);
+    document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';});
+  </script>
+</body>
+</html>
