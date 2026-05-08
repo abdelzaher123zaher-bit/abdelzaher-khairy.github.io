@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" id="R">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abdel Zaher Khairy | Food Quality Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ───── RESET ───── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g:#15c263;--g2:#0d9e50;--gd:#0a7a3d;
+  --t:#0ecfb8;--b:#3b82f6;--v:#8b5cf6;
+  --a:#f59e0b;--r:#f43f5e;
+  --dk:#050e1a;--dk2:#081525;--dk3:#0c1e35;
+  --lt:#f0f9f4;--wh:#fff;--tx:#1e293b;
+  --mu:#64748b;--bdr:rgba(255,255,255,.08);
+  --far:'Cairo','Tajawal',sans-serif;
+  --fen:'Poppins',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--far);background:var(--dk);color:var(--wh);overflow-x:hidden;cursor:none}
+html[lang="en"]{direction:ltr}
+html[lang="en"] body{font-family:var(--fen)}
+
+/* ───── CUSTOM CURSOR ───── */
+#cur{position:fixed;top:0;left:0;width:12px;height:12px;background:var(--g);border-radius:50%;pointer-events:none;z-index:9999;transition:transform .15s,background .2s;mix-blend-mode:screen}
+#cur2{position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid rgba(21,194,99,.4);border-radius:50%;pointer-events:none;z-index:9998;transition:transform .08s}
+
+/* ───── CANVAS BG ───── */
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+/* ───── NAV ───── */
+nav{position:fixed;top:0;inset-inline:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem clamp(1rem,4vw,3rem);
+  background:rgba(5,14,26,.85);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--bdr)}
+.logo{font-family:var(--fen);font-weight:800;font-size:1.15rem;
+  background:linear-gradient(135deg,var(--g),var(--t));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-r{display:flex;align-items:center;gap:1.5rem}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.82rem;font-weight:600;transition:color .2s;letter-spacing:.3px}
+.nav-links a:hover{color:var(--g)}
+.ltog{display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px;gap:3px}
+.lb{border:none;border-radius:999px;background:transparent;color:rgba(255,255,255,.5);padding:5px 13px;font-size:.75rem;font-weight:700;cursor:none;transition:all .2s}
+.lb.on{background:var(--a);color:var(--dk)}
+
+/* ───── LANG SWITCH ───── */
+.a{display:block}.e{display:none}
+span.a{display:inline}span.e{display:none}
+html[lang="en"] .a{display:none}html[lang="en"] .e{display:block}
+html[lang="en"] span.a{display:none}html[lang="en"] span.e{display:inline}
+
+/* ───── HERO ───── */
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;
+  padding:7rem clamp(1rem,4vw,3rem) 4rem;overflow:hidden;z-index:1}
+
+/* Animated mesh gradient */
+.mesh{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:var(--dk);overflow:hidden}
+.mesh::before{content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 20%,rgba(21,194,99,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 60% at 85% 15%,rgba(14,207,184,.14) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 50% at 50% 85%,rgba(139,92,246,.12) 0%,transparent 55%),
+    radial-gradient(ellipse 45% 45% at 80% 70%,rgba(59,130,246,.1) 0%,transparent 55%);
+  animation:meshpulse 8s ease-in-out infinite alternate}
+@keyframes meshpulse{
+  0%{opacity:.7;transform:scale(1)}
+  100%{opacity:1;transform:scale(1.05)}
+}
+
+/* Grid lines */
+.grid{position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,rgba(0,0,0,.6),transparent 85%)}
+
+/* Orbs */
+.orbs{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.2}
+.orb1{width:500px;height:500px;background:radial-gradient(var(--g),transparent);
+  top:-150px;right:-100px;animation:orbdrift 14s ease-in-out infinite}
+.orb2{width:400px;height:400px;background:radial-gradient(var(--b),transparent);
+  bottom:-100px;left:-80px;animation:orbdrift 18s ease-in-out infinite reverse;animation-delay:-5s}
+.orb3{width:300px;height:300px;background:radial-gradient(var(--v),transparent);
+  top:45%;left:30%;animation:orbdrift 11s ease-in-out infinite;animation-delay:-3s}
+.orb4{width:220px;height:220px;background:radial-gradient(var(--t),transparent);
+  bottom:20%;right:12%;animation:orbdrift 9s ease-in-out infinite reverse;animation-delay:-7s}
+@keyframes orbdrift{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-30px) scale(1.08)}
+  66%{transform:translate(-30px,35px) scale(.94)}
+}
+
+/* Rings */
+.rings{position:absolute;inset:0;z-index:0;pointer-events:none;
+  display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(21,194,99,.07)}
+.ring:nth-child(1){width:650px;height:650px;animation:rspin 35s linear infinite}
+.ring:nth-child(2){width:460px;height:460px;border-color:rgba(59,130,246,.08);animation:rspin 25s linear infinite reverse}
+.ring:nth-child(3){width:290px;height:290px;border-color:rgba(139,92,246,.08);animation:rspin 18s linear infinite}
+@keyframes rspin{to{transform:rotate(360deg)}}
+
+/* Scanline */
+.scan{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.scan::after{content:'';position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(21,194,99,.5),rgba(14,207,184,.5),transparent);
+  animation:scanline 7s linear infinite;top:-4px}
+@keyframes scanline{0%{top:-4px;opacity:0}5%{opacity:1}92%{opacity:.6}100%{top:100%;opacity:0}}
+
+/* Hex bg */
+.hex{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='104'%3E%3Cpath d='M30 2L58 18v36L30 70 2 54V18z' fill='none' stroke='%2315c263' stroke-width='1'/%3E%3Cpath d='M30 70l28 16v36L30 138 2 122V86z' fill='none' stroke='%2315c263' stroke-width='1'/%3E%3Cpath d='M-30 2L-2 18v36L-30 70l-28-16V18z' fill='none' stroke='%2315c263' stroke-width='1'/%3E%3C/svg%3E");
+  background-size:60px 104px}
+
+/* HERO CONTENT */
+.hero-wrap{position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 400px;gap:3.5rem;align-items:center}
+
+.badge-avail{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(21,194,99,.1);border:1px solid rgba(21,194,99,.25);
+  color:#7dffc0;padding:7px 18px;border-radius:999px;
+  font-size:.77rem;font-weight:700;margin-bottom:1.5rem;width:fit-content}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g);
+  box-shadow:0 0 0 0 rgba(21,194,99,.7);animation:ping 2s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(21,194,99,.7)}70%{box-shadow:0 0 0 10px rgba(21,194,99,0)}100%{box-shadow:0 0 0 0 rgba(21,194,99,0)}}
+
+h1{font-family:'Tajawal',var(--far);font-weight:900;
+  font-size:clamp(2.4rem,5vw,4.2rem);line-height:1.03;
+  color:#fff;margin-bottom:.5rem}
+html[lang="en"] h1{font-family:var(--fen);font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem)}
+
+.role-line{display:block;margin-top:.5rem;
+  font-size:clamp(1.1rem,2.2vw,1.65rem);font-weight:700;
+  background:linear-gradient(90deg,#6effc0,#3efff0,#7ab8ff,#c49bff,#6effc0);
+  background-size:250% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:shimmer 5s linear infinite}
+@keyframes shimmer{to{background-position:250% center}}
+
+.lead{color:rgba(255,255,255,.55);font-size:.97rem;line-height:1.9;
+  margin:1.1rem 0 1.6rem;max-width:560px}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.8rem}
+.chip{font-size:.72rem;font-weight:700;padding:5px 13px;border-radius:999px;border:1px solid;cursor:none}
+.cg{background:rgba(21,194,99,.12);border-color:rgba(21,194,99,.3);color:#7dffc0}
+.ct{background:rgba(14,207,184,.12);border-color:rgba(14,207,184,.3);color:var(--t)}
+.cb{background:rgba(59,130,246,.12);border-color:rgba(59,130,246,.3);color:#93c5fd}
+.cv{background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.3);color:#c4b5fd}
+.ca{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.3);color:#fcd34d}
+
+.btns{display:flex;flex-wrap:wrap;gap:.65rem}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;
+  border-radius:999px;font-size:.85rem;font-weight:700;
+  text-decoration:none;border:none;cursor:none;transition:all .25s}
+.btn-g{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;
+  box-shadow:0 8px 24px rgba(21,194,99,.3)}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(21,194,99,.45)}
+.btn-o{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.8)}
+.btn-o:hover{background:rgba(255,255,255,.13);color:#fff;transform:translateY(-2px)}
+
+/* HERO CARD */
+.hero-card{position:relative;border-radius:28px;overflow:hidden;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.hero-card::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 75% 0%,rgba(21,194,99,.2),transparent 40%),
+             radial-gradient(circle at 15% 90%,rgba(139,92,246,.15),transparent 40%);
+  pointer-events:none}
+.portrait-area{min-height:320px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,rgba(21,194,99,.06),rgba(14,207,184,.04),rgba(59,130,246,.06));
+  position:relative;overflow:hidden;padding:1.5rem}
+
+/* SVG scientist animation */
+.sci-wrap{position:relative;width:220px;height:220px}
+.sci-wrap svg{width:100%;height:100%;filter:drop-shadow(0 20px 30px rgba(21,194,99,.2))}
+.sci-ring{animation:rspin 10s linear infinite;transform-origin:center}
+.sci-ring2{animation:rspin 7s linear infinite reverse;transform-origin:center}
+.sci-float{animation:float 4s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* data particles inside card */
+.card-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cp{position:absolute;width:3px;height:3px;border-radius:50%;opacity:.6}
+
+.card-info{padding:1.25rem 1.5rem}
+.card-name{font-family:'Tajawal',var(--far);font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:3px}
+html[lang="en"] .card-name{font-family:var(--fen)}
+.card-role{font-size:.78rem;color:var(--t);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem}
+.stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:.85rem .5rem;text-align:center}
+.stat b{display:block;font-family:var(--fen);font-size:1.7rem;font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--g),var(--t));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat span{font-size:.63rem;color:rgba(255,255,255,.38);margin-top:3px;display:block}
+
+/* ───── SECTIONS ───── */
+section{padding:5.5rem clamp(1rem,4vw,3rem);position:relative;z-index:1}
+.con{max-width:1200px;margin:0 auto}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;
+  font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--g2);margin-bottom:.5rem}
+.sec-tag::before{content:'';width:22px;height:2px;background:linear-gradient(90deg,var(--g),var(--t));border-radius:999px;display:block}
+h2{font-family:'Tajawal',var(--far);font-weight:900;
+  font-size:clamp(1.9rem,3vw,2.7rem);line-height:1.1;margin-bottom:.4rem;color:var(--wh)}
+html[lang="en"] h2{font-family:var(--fen);font-weight:800}
+.sec-sub{color:rgba(255,255,255,.4);font-size:.93rem;margin-bottom:2.5rem;line-height:1.7}
+
+/* ───── ABOUT ───── */
+.about{background:linear-gradient(180deg,var(--dk),var(--dk2))}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+
+/* animated SVG illustration */
+.illus{border-radius:22px;overflow:hidden;background:linear-gradient(135deg,rgba(21,194,99,.06),rgba(14,207,184,.04));border:1px solid rgba(255,255,255,.07);margin-bottom:1.5rem}
+.illus svg{width:100%;display:block}
+
+/* animated elements inside SVG */
+.il-belt{animation:beltmove 3s linear infinite}
+@keyframes beltmove{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+.il-scan{animation:ilscan 2.5s ease-in-out infinite}
+@keyframes ilscan{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+.il-pulse{animation:ilpulse 1.5s ease-in-out infinite}
+@keyframes ilpulse{0%,100%{opacity:.4;r:8}50%{opacity:1;r:11}}
+
+.about-txt{color:rgba(255,255,255,.68);font-size:1rem;line-height:1.9;margin-bottom:1.5rem}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem}
+.sk{display:flex;align-items:center;gap:8px;padding:10px 13px;border-radius:12px;
+  font-size:.81rem;font-weight:600;border:1px solid;transition:all .25s;cursor:none}
+.sk:hover{transform:translateX(-4px)}
+html[lang="en"] .sk:hover{transform:translateX(4px)}
+.sk::before{content:'✓';font-size:.68rem;opacity:.8;flex-shrink:0}
+.sg{background:rgba(21,194,99,.08);border-color:rgba(21,194,99,.2);color:#7dffc0}
+.st{background:rgba(14,207,184,.08);border-color:rgba(14,207,184,.2);color:var(--t)}
+.sbb{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.2);color:#93c5fd}
+.sv{background:rgba(139,92,246,.08);border-color:rgba(139,92,246,.2);color:#c4b5fd}
+.sa{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2);color:#fcd34d}
+
+/* ───── LAB SKILLS ───── */
+.lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.lab{border-radius:20px;padding:1.6rem;border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.03);transition:all .3s;position:relative;overflow:hidden;cursor:none}
+.lab::before{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;border-radius:999px}
+.lab:hover{transform:translateY(-5px);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.l1::before{background:linear-gradient(90deg,var(--g),var(--t))}
+.l2::before{background:linear-gradient(90deg,var(--b),var(--v))}
+.l3::before{background:linear-gradient(90deg,var(--a),var(--r))}
+.l4::before{background:linear-gradient(90deg,var(--t),var(--b))}
+.l5::before{background:linear-gradient(90deg,var(--v),var(--r))}
+.l6::before{background:linear-gradient(90deg,var(--g),var(--a))}
+.lab-ico{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.4rem}
+.ic1{background:rgba(21,194,99,.12)} .ic2{background:rgba(59,130,246,.12)}
+.ic3{background:rgba(245,158,11,.12)} .ic4{background:rgba(14,207,184,.12)}
+.ic5{background:rgba(139,92,246,.12)} .ic6{background:rgba(21,194,99,.08)}
+.lab h3{font-size:.98rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.lab p{font-size:.81rem;color:rgba(255,255,255,.5);line-height:1.65}
+
+/* ───── PROJECTS ───── */
+.projects{background:var(--dk2)}
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.proj{border-radius:22px;overflow:hidden;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);transition:all .3s;cursor:none}
+.proj:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.15);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.proj-vis{height:195px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.proj-vis svg{width:100%;height:100%}
+/* animated SVG elements */
+.pv-bubble{animation:bubble 3s ease-in-out infinite}
+@keyframes bubble{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-8px) scale(1.05)}}
+.pv-spin{animation:rspin 6s linear infinite;transform-origin:center}
+.pv-wave{animation:wave 2s ease-in-out infinite}
+@keyframes wave{0%,100%{d:path("M0,60 Q85,30 170,60 Q255,90 340,60 L340,180 L0,180 Z")}50%{d:path("M0,70 Q85,50 170,40 Q255,30 340,70 L340,180 L0,180 Z")}}
+.pv-blink{animation:blink 1.5s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+
+.proj-body{padding:1.4rem}
+.proj-tag{display:inline-flex;align-items:center;gap:5px;border-radius:999px;
+  padding:5px 12px;font-size:.69rem;font-weight:800;margin-bottom:.75rem}
+.proj h3{font-family:'Tajawal',var(--far);font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+html[lang="en"] .proj h3{font-family:var(--fen)}
+.proj p{font-size:.83rem;color:rgba(255,255,255,.52);line-height:1.7;margin-bottom:.9rem}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.pill{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:999px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6)}
+
+/* ───── EXPERIENCE ───── */
+.exp-sec{background:var(--dk3)}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
+.exp{border-radius:20px;padding:1.6rem;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);transition:all .3s;position:relative;overflow:hidden;cursor:none}
+.exp:hover{transform:translateY(-4px);background:rgba(255,255,255,.055);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.exp::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.e1::before{background:linear-gradient(90deg,var(--g),var(--t))}
+.e2::before{background:linear-gradient(90deg,var(--b),var(--v))}
+.e3::before{background:linear-gradient(90deg,var(--a),var(--r))}
+.e4::before{background:linear-gradient(90deg,var(--t),var(--b))}
+.exp-top{display:flex;justify-content:space-between;gap:.75rem;align-items:flex-start;margin-bottom:.7rem}
+.exp-ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
+.ei1{background:rgba(21,194,99,.12)} .ei2{background:rgba(59,130,246,.12)}
+.ei3{background:rgba(245,158,11,.12)} .ei4{background:rgba(14,207,184,.12)}
+.exp-date{font-size:.68rem;font-weight:700;padding:4px 10px;border-radius:999px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.4);font-family:var(--fen);white-space:nowrap}
+.exp h3{font-size:1.02rem;font-weight:700;color:#fff;margin-bottom:3px}
+.exp-co{font-size:.8rem;font-weight:600;margin-bottom:.85rem}
+.eg{color:#7dffc0} .eb{color:#93c5fd} .ea{color:#fcd34d} .et{color:var(--t)}
+.exp ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.exp li{font-size:.81rem;color:rgba(255,255,255,.52);line-height:1.6;
+  padding-inline-start:16px;position:relative}
+.exp li::before{content:'▸';position:absolute;inset-inline-start:0;color:rgba(255,255,255,.2);font-size:.68rem;top:.2em}
+
+/* ───── CERTS ───── */
+.certs-sec{background:var(--dk2)}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.cert{border-radius:18px;padding:1.3rem;border:1px solid rgba(255,255,255,.07);
+  transition:all .25s;position:relative;overflow:hidden;cursor:none}
+.cert:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.3)}
+.cert::after{content:'';position:absolute;bottom:-15px;right:-15px;width:55px;height:55px;border-radius:50%;opacity:.12}
+.c1{background:linear-gradient(135deg,rgba(21,194,99,.08),rgba(14,207,184,.05))} .c1::after{background:var(--g)}
+.c2{background:linear-gradient(135deg,rgba(14,207,184,.08),rgba(59,130,246,.05))} .c2::after{background:var(--t)}
+.c3{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.05))} .c3::after{background:var(--b)}
+.c4{background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(244,63,94,.05))} .c4::after{background:var(--v)}
+.c5{background:linear-gradient(135deg,rgba(245,158,11,.08),rgba(244,63,94,.05))} .c5::after{background:var(--a)}
+.cert i{font-style:normal;font-size:1.9rem;display:block;margin-bottom:.7rem}
+.cert b{display:block;font-size:.87rem;font-weight:700;color:#fff;margin-bottom:4px;line-height:1.4}
+.cert span{font-size:.74rem;color:rgba(255,255,255,.4)}
+.cert small{display:inline-block;margin-top:.55rem;font-size:.7rem;font-weight:700;
+  padding:3px 10px;border-radius:999px;font-family:var(--fen)}
+.c1 small{background:rgba(21,194,99,.15);color:#7dffc0}
+.c2 small{background:rgba(14,207,184,.15);color:var(--t)}
+.c3 small{background:rgba(59,130,246,.15);color:#93c5fd}
+.c4 small{background:rgba(139,92,246,.15);color:#c4b5fd}
+.c5 small{background:rgba(245,158,11,.15);color:#fcd34d}
+
+/* ───── EDU ───── */
+.edu-sec{background:var(--dk3)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:stretch}
+.edu-card,.lang-card{border-radius:22px;padding:2rem;background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07)}
+.edu-card h3{font-size:1.25rem;font-weight:800;color:#fff;margin-bottom:6px}
+html[lang="en"] .edu-card h3{font-family:var(--fen)}
+.edu-card p{color:rgba(255,255,255,.55);line-height:1.8;font-size:.93rem}
+.edu-yr{display:inline-flex;align-items:center;gap:6px;margin-top:1rem;
+  font-size:.78rem;color:rgba(255,255,255,.35);font-family:var(--fen)}
+.lang{margin-top:1.1rem}
+.lang-nm{display:flex;justify-content:space-between;color:#fff;font-weight:700;font-size:.88rem;margin-bottom:8px}
+.bar{height:7px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--g),var(--t),var(--b));
+  position:relative}
+.fill::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  animation:barshine 3s ease-in-out infinite}
+@keyframes barshine{0%,100%{transform:translateX(-100%)}50%{transform:translateX(100%)}}
+
+/* ───── CONTACT ───── */
+.contact-sec{background:linear-gradient(135deg,rgba(21,194,99,.04),rgba(14,207,184,.03),rgba(59,130,246,.04))}
+.con-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;max-width:720px}
+.con-c{display:flex;align-items:center;gap:1rem;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:1.2rem 1.4rem;text-decoration:none;transition:all .25s;cursor:none}
+.con-c:hover{transform:translateY(-3px);background:rgba(255,255,255,.07);
+  border-color:rgba(21,194,99,.25);box-shadow:0 12px 28px rgba(0,0,0,.25)}
+.con-ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.ci1{background:rgba(21,194,99,.12)} .ci2{background:rgba(14,207,184,.12)}
+.ci3{background:rgba(59,130,246,.12)} .ci4{background:rgba(139,92,246,.12)}
+.con-label{font-size:.67rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1px;font-weight:700;font-family:var(--fen)}
+.con-val{font-size:.87rem;font-weight:700;color:#fff;margin-top:2px}
+
+/* ───── FOOTER ───── */
+footer{background:var(--dk);border-top:1px solid rgba(255,255,255,.06);padding:1.75rem clamp(1rem,4vw,3rem)}
+.ft{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.ft b{font-family:var(--fen);font-weight:800;background:linear-gradient(90deg,var(--g),var(--t));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ft span{color:rgba(255,255,255,.28);font-size:.8rem}
+.ft-dots{display:flex;gap:5px}
+.ft-dots i{width:7px;height:7px;border-radius:50%;display:block}
+
+/* ───── REVEAL ───── */
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .65s ease,transform .65s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ───── RESPONSIVE ───── */
+@media(max-width:960px){
+  .hero-wrap,.about-grid,.edu-grid{grid-template-columns:1fr}
+  .hero-card{order:-1}.lab-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid,.exp-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .cert-grid,.con-grid,.skills{grid-template-columns:1fr}
+  .lab-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">AZK</div>
+  <div class="nav-r">
+    <ul class="nav-links">
+      <li><a href="#about"><span class="a">عني</span><span class="e">About</span></a></li>
+      <li><a href="#lab"><span class="a">المهارات</span><span class="e">Skills</span></a></li>
+      <li><a href="#projects"><span class="a">المشاريع</span><span class="e">Projects</span></a></li>
+      <li><a href="#exp"><span class="a">الخبرات</span><span class="e">Experience</span></a></li>
+      <li><a href="#certs"><span class="a">الشهادات</span><span class="e">Certs</span></a></li>
+      <li><a href="#contact"><span class="a">تواصل</span><span class="e">Contact</span></a></li>
+    </ul>
+    <div class="ltog">
+      <button class="lb on" id="bar" onclick="setL('ar')">عر</button>
+      <button class="lb" id="ben" onclick="setL('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="mesh"></div>
+  <div class="grid"></div>
+  <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div><div class="orb orb4"></div></div>
+  <div class="rings"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
+  <div class="hex"></div>
+  <div class="scan"></div>
+  <canvas id="bg"></canvas>
+
+  <div class="hero-wrap">
+    <!-- TEXT -->
+    <div>
+      <div class="badge-avail">
+        <div class="dot"></div>
+        <span class="a">متاح فوراً · إقامة قابلة للتحويل</span>
+        <span class="e">Available Immediately · Transferable Iqama</span>
+      </div>
+      <h1>
+        <div class="a">عبد الظاهر خيري</div>
+        <div class="e">Abdel Zaher Khairy</div>
+        <span class="role-line a">متخصص جودة وسلامة الغذاء</span>
+        <span class="role-line e">Food Quality & Safety Specialist</span>
+      </h1>
+      <p class="lead a">خبير في تطبيق أنظمة HACCP وISO 22000 وFSSC 22000، بخبرة ميدانية في المطابخ المركزية والمشروبات الغازية والمخابز الصناعية. أحوّل معايير الجودة إلى نتائج ملموسة تحمي المستهلك وترتقي بالمنتج.</p>
+      <p class="lead e">Expert in HACCP, ISO 22000 & FSSC 22000 implementation, with field experience across central kitchens, beverages & industrial bakeries. I turn quality standards into real-world results that protect consumers and elevate products.</p>
+      <div class="chips">
+        <span class="chip cg">HACCP</span>
+        <span class="chip ct">ISO 22000:2018</span>
+        <span class="chip cb">FSSC 22000 v6</span>
+        <span class="chip cv">ISO 45001:2018</span>
+        <span class="chip ca">GMP · PRPs · SPC</span>
+      </div>
+      <div class="btns">
+        <a class="btn btn-g" href="mailto:abdelzaher123zaher@gmail.com">📧 <span class="a">راسلني</span><span class="e">Email Me</span></a>
+        <a class="btn btn-o" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">💼 LinkedIn</a>
+        <a class="btn btn-o" href="tel:+966510330283">📞 +966 51 033 0283</a>
+      </div>
+    </div>
+
+    <!-- CARD -->
+    <div class="hero-card">
+      <div class="portrait-area">
+        <div class="card-particles" id="cparts"></div>
+        <!-- Animated SVG scientist -->
+        <div class="sci-wrap sci-float">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="bg_c" cx="50%" cy="50%"><stop offset="0%" stop-color="#0c1e35"/><stop offset="100%" stop-color="#081525"/></radialGradient>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#15c263"/><stop offset="100%" stop-color="#0ecfb8"/></linearGradient>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+              <linearGradient id="coat" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e8f5f0"/><stop offset="100%" stop-color="#d4ede6"/></linearGradient>
+              <clipPath id="cp"><circle cx="110" cy="110" r="105"/></clipPath>
+            </defs>
+
+            <!-- Background -->
+            <circle cx="110" cy="110" r="108" fill="url(#bg_c)" stroke="url(#g1)" stroke-width="2" opacity=".5"/>
+
+            <!-- Spinning outer ring -->
+            <g class="sci-ring">
+              <circle cx="110" cy="110" r="100" fill="none" stroke="url(#g1)" stroke-width=".8" stroke-dasharray="8 6" opacity=".3"/>
+            </g>
+            <!-- Spinning inner ring -->
+            <g class="sci-ring2">
+              <circle cx="110" cy="110" r="85" fill="none" stroke="url(#g2)" stroke-width=".8" stroke-dasharray="4 8" opacity=".3"/>
+            </g>
+
+            <!-- Lab coat body -->
+            <g clip-path="url(#cp)">
+              <!-- coat -->
+              <rect x="72" y="148" width="76" height="80" rx="10" fill="url(#coat)"/>
+              <!-- collar v -->
+              <polygon points="101,148 110,172 119,148" fill="#c8e8df"/>
+              <!-- green stripe on collar -->
+              <rect x="108" y="150" width="4" height="28" rx="2" fill="#15c263" opacity=".7"/>
+              <!-- coat pocket -->
+              <rect x="78" y="170" width="16" height="12" rx="3" fill="#c0e0d6" stroke="#15c263" stroke-width=".8"/>
+              <!-- pens in pocket -->
+              <line x1="82" y1="169" x2="82" y2="162" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="86" y1="169" x2="86" y2="161" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+
+              <!-- Head -->
+              <ellipse cx="110" cy="118" rx="24" ry="27" fill="#f5d5b0"/>
+              <!-- Hair -->
+              <ellipse cx="110" cy="95" rx="24" ry="11" fill="#2d1800"/>
+              <rect x="86" y="92" width="48" height="14" rx="7" fill="#2d1800"/>
+              <!-- Ears -->
+              <ellipse cx="86" cy="118" rx="5" ry="7" fill="#e8c4a0"/>
+              <ellipse cx="134" cy="118" rx="5" ry="7" fill="#e8c4a0"/>
+              <!-- Eyes -->
+              <circle cx="102" cy="115" r="4" fill="#1a1a1a"/>
+              <circle cx="118" cy="115" r="4" fill="#1a1a1a"/>
+              <circle cx="103.5" cy="113.5" r="1.5" fill="#fff"/>
+              <circle cx="119.5" cy="113.5" r="1.5" fill="#fff"/>
+              <!-- Glasses -->
+              <rect x="97" y="110" width="10" height="9" rx="3" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+              <rect x="113" y="110" width="10" height="9" rx="3" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+              <line x1="107" y1="114" x2="113" y2="114" stroke="#8b5cf6" stroke-width="1.2"/>
+              <line x1="86" y1="114" x2="97" y2="114" stroke="#8b5cf6" stroke-width="1.2"/>
+              <line x1="123" y1="114" x2="134" y2="114" stroke="#8b5cf6" stroke-width="1.2"/>
+              <!-- Smile -->
+              <path d="M103 125 Q110 131 117 125" stroke="#c08060" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- Clipboard floating beside -->
+            <rect x="148" y="100" width="34" height="46" rx="5" fill="#fff" opacity=".85"/>
+            <rect x="154" y="94" width="22" height="10" rx="3" fill="#15c263" opacity=".8"/>
+            <line x1="153" y1="115" x2="177" y2="115" stroke="#d1d5db" stroke-width="1"/>
+            <line x1="153" y1="121" x2="177" y2="121" stroke="#d1d5db" stroke-width="1"/>
+            <line x1="153" y1="127" x2="170" y2="127" stroke="#d1d5db" stroke-width="1"/>
+            <rect x="153" y="133" width="10" height="6" rx="2" fill="#15c263" opacity=".4"/>
+            <text x="165" y="139" font-size="7" fill="#3b82f6" font-weight="700">✓</text>
+
+            <!-- Flask -->
+            <g transform="translate(36,100)">
+              <rect x="8" y="0" width="8" height="20" rx="2" fill="rgba(14,207,184,.5)" stroke="rgba(14,207,184,.8)" stroke-width=".8"/>
+              <ellipse cx="12" cy="26" rx="14" ry="10" fill="rgba(14,207,184,.2)" stroke="rgba(14,207,184,.8)" stroke-width=".8"/>
+              <ellipse cx="12" cy="26" rx="7" ry="5" fill="rgba(14,207,184,.5)"/>
+              <!-- bubbles -->
+              <circle cx="9" cy="24" r="2" fill="rgba(255,255,255,.5)" class="il-pulse"/>
+              <circle cx="15" cy="20" r="1.5" fill="rgba(255,255,255,.4)" style="animation:ilpulse 2s ease-in-out infinite;animation-delay:.5s"/>
+            </g>
+
+            <!-- HACCP badge -->
+            <rect x="62" y="34" width="56" height="20" rx="6" fill="rgba(21,194,99,.18)" stroke="rgba(21,194,99,.4)" stroke-width=".8"/>
+            <text x="90" y="48" text-anchor="middle" font-size="8.5" fill="#7dffc0" font-family="Poppins,sans-serif" font-weight="800">HACCP ✓</text>
+
+            <!-- ISO badge -->
+            <rect x="102" y="176" width="52" height="18" rx="5" fill="rgba(59,130,246,.18)" stroke="rgba(59,130,246,.35)" stroke-width=".8"/>
+            <text x="128" y="189" text-anchor="middle" font-size="8" fill="#93c5fd" font-family="Poppins,sans-serif" font-weight="700">ISO 22000</text>
+
+            <!-- temp reading floating -->
+            <g class="il-scan" transform="translate(0,0)">
+              <rect x="148" y="60" width="40" height="28" rx="6" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.4)" stroke-width=".8"/>
+              <text x="168" y="72" text-anchor="middle" font-size="7" fill="#fcd34d" font-weight="700">TEMP</text>
+              <text x="168" y="83" text-anchor="middle" font-size="9" fill="#f59e0b" font-weight="800">4°C ✓</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card-info">
+        <div class="card-name a">عبد الظاهر خيري</div>
+        <div class="card-name e">Abdel Zaher Khairy</div>
+        <div class="card-role a">متخصص جودة وسلامة الغذاء · الأحساء، السعودية</div>
+        <div class="card-role e">Food Quality & Safety Specialist · Al Ahsa, Saudi Arabia</div>
+        <div class="stats">
+          <div class="stat"><b id="s1">0</b><span class="a">سنوات</span><span class="e">Years</span></div>
+          <div class="stat"><b id="s2">0</b><span class="a">شهادات</span><span class="e">Certs</span></div>
+          <div class="stat"><b id="s3">0</b><span class="a">مشاريع</span><span class="e">Projects</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+  <div class="con">
+    <div class="sec-tag"><span class="a">نبذة عني</span><span class="e">About</span></div>
+    <h2 class="a">ملخص مهني</h2><h2 class="e">Professional Summary</h2>
+    <p class="sec-sub a">متخصص يجمع بين المعرفة العلمية والتطبيق الميداني</p>
+    <p class="sec-sub e">A specialist combining scientific knowledge with field application</p>
+    <div class="about-grid">
+      <div>
+        <!-- Animated SVG Illustration -->
+        <div class="illus">
+          <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+            <rect width="500" height="200" fill="#050e1a"/>
+            <!-- conveyor belt -->
+            <rect x="20" y="140" width="460" height="14" rx="7" fill="rgba(21,194,99,.15)" stroke="rgba(21,194,99,.3)" stroke-width="1" stroke-dasharray="12 8" class="il-belt"/>
+            <circle cx="30" cy="147" r="8" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.6)" stroke-width="1.5"/>
+            <circle cx="470" cy="147" r="8" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.6)" stroke-width="1.5"/>
+            <!-- boxes on belt with glow -->
+            <rect x="55" y="115" width="38" height="30" rx="6" fill="rgba(21,194,99,.25)" stroke="rgba(21,194,99,.6)" stroke-width="1.5"/>
+            <text x="74" y="135" text-anchor="middle" font-size="11" fill="#7dffc0">✓</text>
+            <rect x="170" y="113" width="38" height="30" rx="6" fill="rgba(14,207,184,.25)" stroke="rgba(14,207,184,.6)" stroke-width="1.5"/>
+            <text x="189" y="133" text-anchor="middle" font-size="11" fill="#0ecfb8">✓</text>
+            <rect x="285" y="115" width="38" height="30" rx="6" fill="rgba(59,130,246,.25)" stroke="rgba(59,130,246,.6)" stroke-width="1.5"/>
+            <text x="304" y="135" text-anchor="middle" font-size="11" fill="#93c5fd">✓</text>
+            <rect x="395" y="114" width="38" height="30" rx="6" fill="rgba(139,92,246,.25)" stroke="rgba(139,92,246,.6)" stroke-width="1.5"/>
+            <text x="414" y="134" text-anchor="middle" font-size="11" fill="#c4b5fd">✓</text>
+            <!-- Inspector -->
+            <circle cx="130" cy="68" r="18" fill="#f5d5b0" stroke="#e0b898" stroke-width="1"/>
+            <ellipse cx="130" cy="54" rx="18" ry="8" fill="#2d1800"/>
+            <circle cx="124" cy="65" r="2.5" fill="#1a1a1a"/>
+            <circle cx="136" cy="65" r="2.5" fill="#1a1a1a"/>
+            <path d="M124 74 Q130 79 136 74" stroke="#c08060" stroke-width="1.5" fill="none"/>
+            <rect x="112" y="88" width="36" height="48" rx="6" fill="rgba(21,194,99,.2)" stroke="rgba(21,194,99,.4)" stroke-width="1"/>
+            <!-- clipboard -->
+            <rect x="148" y="88" width="26" height="36" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+            <rect x="155" y="82" width="12" height="8" rx="2" fill="rgba(21,194,99,.6)"/>
+            <line x1="152" y1="102" x2="170" y2="102" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+            <line x1="152" y1="109" x2="170" y2="109" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+            <line x1="152" y1="116" x2="164" y2="116" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+            <!-- HACCP sign -->
+            <rect x="200" y="30" width="70" height="28" rx="8" fill="rgba(21,194,99,.15)" stroke="rgba(21,194,99,.35)" stroke-width="1"/>
+            <text x="235" y="49" text-anchor="middle" font-size="11" fill="#7dffc0" font-family="Poppins,sans-serif" font-weight="800">HACCP</text>
+            <!-- temp display -->
+            <rect x="300" y="28" width="60" height="30" rx="7" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.35)" stroke-width="1"/>
+            <text x="330" y="41" text-anchor="middle" font-size="8" fill="#93c5fd" font-weight="700">TEMP</text>
+            <text x="330" y="53" text-anchor="middle" font-size="10" fill="#60a5fa" font-weight="800">4°C ✓</text>
+            <!-- glowing dots -->
+            <circle cx="400" cy="50" r="4" fill="rgba(245,158,11,.6)" class="il-pulse"/>
+            <circle cx="420" cy="40" r="3" fill="rgba(14,207,184,.6)" style="animation:ilpulse 2.2s ease-in-out infinite;animation-delay:.4s"/>
+            <circle cx="440" cy="55" r="3.5" fill="rgba(139,92,246,.6)" style="animation:ilpulse 1.8s ease-in-out infinite;animation-delay:.8s"/>
+            <!-- ground line -->
+            <line x1="20" y1="170" x2="480" y2="170" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          </svg>
+        </div>
+        <p class="about-txt a">متخصص في جودة وسلامة الغذاء بخبرة ميدانية في المطابخ المركزية والمشروبات الغازية والمخابز الصناعية. أجيد تطبيق أنظمة HACCP وISO 22000 وFSSC 22000، مع مهارات تحليلية متقدمة في التحكم الإحصائي وتحليل السبب الجذري. أحوّل معايير الجودة إلى نتائج قابلة للقياس.</p>
+        <p class="about-txt e">Food Quality & Safety Specialist with field experience in central kitchens, FMCG beverages & industrial bakeries. Proficient in HACCP, ISO 22000 & FSSC 22000 end-to-end, with advanced skills in SPC and root cause analysis — turning standards into measurable results.</p>
+      </div>
+      <div>
+        <div class="skills">
+          <div class="sk sg">HACCP</div><div class="sk sg">ISO 22000:2018</div>
+          <div class="sk st">FSSC 22000 v6</div><div class="sk st">GMP & PRPs</div>
+          <div class="sk sbb">SPC</div>
+          <div class="sk sbb a">التقييم الحسي</div><div class="sk sbb e">Sensory Evaluation</div>
+          <div class="sk sv">ISO 45001:2018</div>
+          <div class="sk sv a">تحليل السبب الجذري</div><div class="sk sv e">Root Cause Analysis</div>
+          <div class="sk sg">NFSA Regulations</div><div class="sk st">IPM</div>
+          <div class="sk sa a">تقدير الرطوبة</div><div class="sk sa e">Moisture Analysis</div>
+          <div class="sk sa a">البريكس واللزوجة</div><div class="sk sa e">Brix & Viscosity</div>
+          <div class="sk sbb">GLC / GPLC</div><div class="sk sv">Python · MS Office</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAB SKILLS -->
+<section class="reveal" id="lab" style="background:var(--dk3)">
+  <div class="con">
+    <div class="sec-tag"><span class="a">المهارات المخبرية</span><span class="e">Laboratory Skills</span></div>
+    <h2 class="a">خبرات تحليلية متقدمة</h2><h2 class="e">Advanced Analytical Expertise</h2>
+    <p class="sec-sub a">أجهزة وتقنيات أتقنها من خلال سنوات الخبرة الميدانية</p>
+    <p class="sec-sub e">Equipment & techniques mastered through years of field experience</p>
+    <div class="lab-grid">
+      <div class="lab l1 reveal">
+        <div class="lab-ico ic1"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="11" y="3" width="4" height="13" rx="2" fill="#7dffc0"/><ellipse cx="13" cy="19" rx="7" ry="5" fill="rgba(21,194,99,.3)" stroke="#7dffc0" stroke-width="1"/><circle cx="13" cy="19" r="3" fill="#15c263"/></svg></div>
+        <h3 class="a">تقدير الرطوبة والمحتوى المائي</h3><h3 class="e">Moisture Content Analysis</h3>
+        <p class="a">قياس نسبة المحتوى المائي في المواد الغذائية باستخدام الأفران والمحللات — معيار أساسي للدقيق والمسحوق والمنتجات الجافة.</p>
+        <p class="e">Measuring water content in food materials using ovens & moisture analyzers — a key quality parameter for flour, powders & dry products.</p>
+      </div>
+      <div class="lab l2 reveal">
+        <div class="lab-ico ic2"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="9" fill="none" stroke="#93c5fd" stroke-width="1.5"/><circle cx="13" cy="13" r="5" fill="rgba(59,130,246,.2)"/><text x="13" y="17" text-anchor="middle" font-size="6" fill="#60a5fa" font-weight="800">°Bx</text></svg></div>
+        <h3 class="a">قياس البريكس والسكريات</h3><h3 class="e">Brix & Sugar Measurement</h3>
+        <p class="a">استخدام الريفراكتوميتر لقياس تركيز السكريات الذائبة في العصائر والمشروبات — حيوي لضبط التركيبة وجودة المنتج.</p>
+        <p class="e">Using refractometers to measure dissolved sugar concentration in juices & beverages — critical for formula control and product quality.</p>
+      </div>
+      <div class="lab l3 reveal">
+        <div class="lab-ico ic3"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="8" y="6" width="10" height="16" rx="3" fill="rgba(245,158,11,.2)" stroke="#fcd34d" stroke-width="1.5"/><path d="M10 16 Q13 12 16 15" stroke="#f59e0b" stroke-width="1.5" fill="none"/><circle cx="13" cy="18" r="2.5" fill="#d97706"/></svg></div>
+        <h3 class="a">قياس اللزوجة</h3><h3 class="e">Viscosity Measurement</h3>
+        <p class="a">تحديد مقاومة السوائل الغذائية للتدفق باستخدام الفسكوميتر — مؤشر جودة رئيسي للصلصات والكريمات والمشروبات السميكة.</p>
+        <p class="e">Determining flow resistance of food liquids using viscometers — a key quality indicator for sauces, creams & thick beverages.</p>
+      </div>
+      <div class="lab l4 reveal">
+        <div class="lab-ico ic4"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 20 L8 20 L10 12 L12 18 L14 8 L16 15 L18 10 L20 20 L23 20" stroke="#0ecfb8" stroke-width="1.8" fill="none"/><line x1="5" y1="20" x2="23" y2="20" stroke="rgba(14,207,184,.4)" stroke-width="1"/></svg></div>
+        <h3>GLC / GPLC</h3>
+        <p class="a">الكروماتوغرافيا الغازية لتحليل المركبات العضوية والأحماض الدهنية والمبيدات في العينات الغذائية — دقة تحليلية عالية.</p>
+        <p class="e">Gas-liquid chromatography for analyzing organic compounds, fatty acids & pesticides in food samples — high analytical precision.</p>
+      </div>
+      <div class="lab l5 reveal">
+        <div class="lab-ico ic5"><svg width="26" height="26" viewBox="0 0 26 26"><ellipse cx="13" cy="17" rx="8" ry="5" fill="rgba(139,92,246,.2)" stroke="#c4b5fd" stroke-width="1.5"/><rect x="11" y="6" width="4" height="12" rx="2" fill="#a78bfa"/><ellipse cx="13" cy="17" rx="4" ry="2.5" fill="rgba(139,92,246,.5)"/></svg></div>
+        <h3 class="a">تحليل زيت القلي</h3><h3 class="e">Frying Oil Analysis</h3>
+        <p class="a">مراقبة جودة زيت القلي عبر قياس نقطة الدخان ونسب الأحماض الحرة والأكسدة — حماية المستهلك وضمان الجودة.</p>
+        <p class="e">Monitoring frying oil quality by measuring smoke point, free fatty acids & oxidation — consumer protection & food safety assurance.</p>
+      </div>
+      <div class="lab l6 reveal">
+        <div class="lab-ico ic6"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="8" cy="10" r="5" fill="rgba(21,194,99,.15)" stroke="#7dffc0" stroke-width="1.2"/><text x="8" y="13" text-anchor="middle" font-size="6">👁</text><circle cx="18" cy="10" r="5" fill="rgba(245,158,11,.15)" stroke="#fcd34d" stroke-width="1.2"/><text x="18" y="13" text-anchor="middle" font-size="6">👅</text><circle cx="8" cy="21" r="5" fill="rgba(59,130,246,.15)" stroke="#93c5fd" stroke-width="1.2"/><text x="8" y="24" text-anchor="middle" font-size="6">👃</text><circle cx="18" cy="21" r="5" fill="rgba(139,92,246,.15)" stroke="#c4b5fd" stroke-width="1.2"/><text x="18" y="24" text-anchor="middle" font-size="6">👂</text></svg></div>
+        <h3 class="a">التقييم الحسي</h3><h3 class="e">Sensory Evaluation</h3>
+        <p class="a">تقييم المنتجات الغذائية بالحواس الخمس: المظهر، الرائحة، الملمس، الطعم والصوت — المعيار الذهبي لرضا المستهلك.</p>
+        <p class="e">Evaluating food products via all five senses: appearance, aroma, texture, taste & sound — the gold standard for consumer satisfaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects reveal" id="projects">
+  <div class="con">
+    <div class="sec-tag"><span class="a">المشاريع</span><span class="e">Projects</span></div>
+    <h2 class="a">مشاريع بارزة</h2><h2 class="e">Featured Projects</h2>
+    <p class="sec-sub a">مشاريع حقيقية أحدثت فرقاً ملموساً في الجودة والكفاءة</p>
+    <p class="sec-sub e">Real projects that made measurable differences in quality & efficiency</p>
+    <div class="proj-grid">
+
+      <!-- P1: Watermelon seed juice -->
+      <div class="proj reveal">
+        <div class="proj-vis" style="background:linear-gradient(135deg,#061a0e,#0a1e14)">
+          <svg viewBox="0 0 340 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <!-- bg glow -->
+            <radialGradient id="pg1" cx="30%" cy="50%"><stop offset="0%" stop-color="rgba(21,194,99,.25)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <radialGradient id="pg1b" cx="80%" cy="40%"><stop offset="0%" stop-color="rgba(14,207,184,.15)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <rect width="340" height="195" fill="url(#pg1)"/>
+            <rect width="340" height="195" fill="url(#pg1b)"/>
+            <!-- watermelon slice -->
+            <ellipse cx="85" cy="100" rx="55" ry="65" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.5)" stroke-width="1.5"/>
+            <ellipse cx="85" cy="100" rx="42" ry="52" fill="rgba(21,194,99,.2)"/>
+            <!-- seeds -->
+            <ellipse cx="72" cy="85" rx="5" ry="8" fill="#14532d" opacity=".8" transform="rotate(-20,72,85)"/>
+            <ellipse cx="95" cy="108" rx="5" ry="8" fill="#14532d" opacity=".8" transform="rotate(15,95,108)"/>
+            <ellipse cx="78" cy="115" rx="5" ry="8" fill="#14532d" opacity=".8"/>
+            <ellipse cx="98" cy="80" rx="4" ry="7" fill="#14532d" opacity=".8" transform="rotate(-10,98,80)"/>
+            <!-- juice bottle animated -->
+            <g class="pv-bubble" style="transform-origin:185px 97px">
+              <rect x="158" y="42" width="54" height="110" rx="14" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.6)" stroke-width="1.5"/>
+              <rect x="168" y="32" width="34" height="18" rx="5" fill="rgba(21,194,99,.5)" stroke="rgba(21,194,99,.8)" stroke-width="1"/>
+              <rect x="163" y="62" width="44" height="58" rx="6" fill="rgba(21,194,99,.15)"/>
+              <rect x="165" y="66" width="40" height="50" rx="4" fill="rgba(255,255,255,.08)"/>
+              <text x="185" y="85" text-anchor="middle" font-size="8" fill="#7dffc0" font-weight="800" font-family="Cairo,sans-serif">بذور</text>
+              <text x="185" y="97" text-anchor="middle" font-size="8" fill="#7dffc0" font-weight="800" font-family="Cairo,sans-serif">البطيخ</text>
+              <text x="185" y="110" text-anchor="middle" font-size="10" fill="#15c263" font-weight="900">100%</text>
+            </g>
+            <!-- lab flask -->
+            <rect x="248" y="82" width="10" height="30" rx="3" fill="rgba(14,207,184,.4)" stroke="rgba(14,207,184,.7)" stroke-width="1"/>
+            <ellipse cx="253" cy="116" rx="15" ry="10" fill="rgba(14,207,184,.2)" stroke="rgba(14,207,184,.6)" stroke-width="1"/>
+            <circle cx="250" cy="114" r="3" fill="rgba(14,207,184,.5)" class="il-pulse"/>
+            <!-- sparkles -->
+            <circle cx="295" cy="55" r="3" fill="rgba(245,158,11,.7)" class="il-pulse" style="animation-delay:.3s"/>
+            <circle cx="315" cy="80" r="2" fill="rgba(21,194,99,.8)" class="il-pulse" style="animation-delay:.8s"/>
+            <circle cx="50" cy="45" r="2.5" fill="rgba(14,207,184,.7)" class="il-pulse" style="animation-delay:.5s"/>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag" style="background:rgba(21,194,99,.15);border:1px solid rgba(21,194,99,.3);color:#7dffc0">🌱 <span class="a">تطوير منتج</span><span class="e">Product Dev</span></span>
+          <h3 class="a">تطوير منتج عصير بذور البطيخ</h3><h3 class="e">Watermelon Seed Juice Development</h3>
+          <p class="a">تطوير منتج عصير مبتكر من بذور البطيخ الغنية بالأحماض الدهنية والبروتين. شمل المشروع دراسة الجدوى، التركيبة الغذائية، تصميم عملية الاستخراج، واختبارات الجودة الكاملة حتى الوصول للمنتج النهائي.</p>
+          <p class="e">Developing an innovative juice from watermelon seeds rich in fatty acids & protein. Included feasibility study, nutritional formulation, extraction process design & complete quality testing to final product.</p>
+          <div class="pills"><span class="pill">تطوير منتج</span><span class="pill">تحليل غذائي</span><span class="pill">GLC</span><span class="pill">سلامة غذاء</span></div>
+        </div>
+      </div>
+
+      <!-- P2: Gluten-free biscuit -->
+      <div class="proj reveal">
+        <div class="proj-vis" style="background:linear-gradient(135deg,#1a0f00,#1f1200)">
+          <svg viewBox="0 0 340 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <radialGradient id="pg2" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(245,158,11,.2)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <rect width="340" height="195" fill="url(#pg2)"/>
+            <!-- biscuit animated -->
+            <g class="pv-bubble" style="transform-origin:80px 97px">
+              <rect x="42" y="62" width="76" height="70" rx="14" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.6)" stroke-width="1.5"/>
+              <rect x="52" y="72" width="56" height="50" rx="8" fill="rgba(245,158,11,.15)"/>
+              <circle cx="68" cy="90" r="4" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+              <circle cx="88" cy="90" r="4" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+              <circle cx="68" cy="108" r="4" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+              <circle cx="88" cy="108" r="4" fill="rgba(245,158,11,.3)" stroke="rgba(245,158,11,.5)" stroke-width="1"/>
+            </g>
+            <!-- ingredients -->
+            <ellipse cx="175" cy="80" rx="22" ry="26" fill="rgba(245,158,11,.25)" stroke="rgba(245,158,11,.5)" stroke-width="1.2"/>
+            <text x="175" y="85" text-anchor="middle" font-size="9" fill="#fcd34d" font-weight="700" font-family="Cairo,sans-serif">حمص</text>
+            <!-- rice grains -->
+            <ellipse cx="230" cy="76" rx="7" ry="13" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1" transform="rotate(-15,230,76)"/>
+            <ellipse cx="246" cy="82" rx="7" ry="13" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1" transform="rotate(10,246,82)"/>
+            <ellipse cx="238" cy="65" rx="6" ry="12" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+            <text x="238" y="108" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.5)" font-family="Cairo,sans-serif">أرز</text>
+            <!-- gluten-free badge -->
+            <circle cx="300" cy="78" r="32" fill="rgba(21,194,99,.12)" stroke="rgba(21,194,99,.35)" stroke-width="1.5"/>
+            <text x="300" y="69" text-anchor="middle" font-size="7" fill="#7dffc0" font-weight="800">GLUTEN</text>
+            <text x="300" y="80" text-anchor="middle" font-size="7" fill="#7dffc0" font-weight="800">FREE ✓</text>
+            <circle cx="300" cy="78" r="28" fill="none" stroke="rgba(21,194,99,.2)" stroke-width="1" stroke-dasharray="4 3" class="pv-spin"/>
+            <!-- arrow -->
+            <path d="M145 97 L118 97" stroke="rgba(245,158,11,.5)" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <polygon points="118,93 108,97 118,101" fill="rgba(245,158,11,.6)"/>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag" style="background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:#fcd34d">🍪 <span class="a">منتج صحي</span><span class="e">Health Product</span></span>
+          <h3 class="a">بسكويت صحي خالٍ من الجلوتين</h3><h3 class="e">Gluten-Free Healthy Biscuit</h3>
+          <p class="a">تطوير بسكويت صحي مصنوع من دقيق الحمص ودقيق الأرز كبديل خالٍ من الجلوتين، يستهدف الأشخاص المصابين بحساسية الجلوتين والباحثين عن خيارات غذائية طبيعية.</p>
+          <p class="e">Developing a healthy biscuit from chickpea & rice flour as a gluten-free alternative, targeting gluten-sensitive individuals and health-conscious consumers seeking natural food options.</p>
+          <div class="pills"><span class="pill">Gluten-Free</span><span class="pill">دقيق الحمص</span><span class="pill">تطوير وصفة</span><span class="pill">اختبار حسي</span></div>
+        </div>
+      </div>
+
+      <!-- P3: HACCP plan -->
+      <div class="proj reveal">
+        <div class="proj-vis" style="background:linear-gradient(135deg,#040e1f,#060f22)">
+          <svg viewBox="0 0 340 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <radialGradient id="pg3" cx="50%" cy="30%"><stop offset="0%" stop-color="rgba(59,130,246,.2)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <rect width="340" height="195" fill="url(#pg3)"/>
+            <!-- step boxes -->
+            <rect x="15" y="28" width="52" height="30" rx="7" fill="rgba(59,130,246,.3)" stroke="rgba(59,130,246,.6)" stroke-width="1.2"/>
+            <text x="41" y="47" text-anchor="middle" font-size="8" fill="#93c5fd" font-weight="700" font-family="Cairo,sans-serif">استلام</text>
+            <rect x="87" y="28" width="52" height="30" rx="7" fill="rgba(59,130,246,.25)" stroke="rgba(59,130,246,.5)" stroke-width="1.2"/>
+            <text x="113" y="47" text-anchor="middle" font-size="8" fill="#93c5fd" font-weight="700" font-family="Cairo,sans-serif">تخزين</text>
+            <rect x="159" y="28" width="52" height="30" rx="7" fill="rgba(59,130,246,.25)" stroke="rgba(59,130,246,.5)" stroke-width="1.2"/>
+            <text x="185" y="47" text-anchor="middle" font-size="8" fill="#93c5fd" font-weight="700" font-family="Cairo,sans-serif">تحضير</text>
+            <rect x="231" y="28" width="52" height="30" rx="7" fill="rgba(59,130,246,.25)" stroke="rgba(59,130,246,.5)" stroke-width="1.2"/>
+            <text x="257" y="47" text-anchor="middle" font-size="8" fill="#93c5fd" font-weight="700" font-family="Cairo,sans-serif">طهي</text>
+            <!-- arrows -->
+            <line x1="67" y1="43" x2="86" y2="43" stroke="rgba(59,130,246,.6)" stroke-width="1.5"/>
+            <polygon points="86,39 94,43 86,47" fill="rgba(59,130,246,.7)"/>
+            <line x1="139" y1="43" x2="158" y2="43" stroke="rgba(59,130,246,.6)" stroke-width="1.5"/>
+            <polygon points="158,39 166,43 158,47" fill="rgba(59,130,246,.7)"/>
+            <line x1="211" y1="43" x2="230" y2="43" stroke="rgba(59,130,246,.6)" stroke-width="1.5"/>
+            <polygon points="230,39 238,43 230,47" fill="rgba(59,130,246,.7)"/>
+            <!-- CCP markers -->
+            <circle cx="41" cy="72" r="11" fill="rgba(244,63,94,.3)" stroke="rgba(244,63,94,.8)" stroke-width="1.5"/>
+            <text x="41" y="76" text-anchor="middle" font-size="7" fill="#fda4af" font-weight="800">CCP</text>
+            <circle cx="185" cy="72" r="11" fill="rgba(244,63,94,.3)" stroke="rgba(244,63,94,.8)" stroke-width="1.5"/>
+            <text x="185" y="76" text-anchor="middle" font-size="7" fill="#fda4af" font-weight="800">CCP</text>
+            <circle cx="257" cy="72" r="11" fill="rgba(245,158,11,.25)" stroke="rgba(245,158,11,.7)" stroke-width="1.5"/>
+            <text x="257" y="76" text-anchor="middle" font-size="7" fill="#fcd34d" font-weight="800">CP</text>
+            <!-- chart -->
+            <rect x="15" y="98" width="310" height="72" rx="10" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+            <text x="170" y="114" text-anchor="middle" font-size="8.5" fill="#93c5fd" font-weight="700" font-family="Poppins,sans-serif">HACCP Plan — Central Kitchen</text>
+            <polyline points="25,160 65,145 105,153 145,132 185,148 225,126 265,140 305,122" stroke="rgba(59,130,246,.7)" stroke-width="2" fill="none"/>
+            <circle cx="145" cy="132" r="4" fill="rgba(244,63,94,.8)" class="il-pulse"/>
+            <circle cx="225" cy="126" r="4" fill="rgba(244,63,94,.8)" class="il-pulse" style="animation-delay:.6s"/>
+            <polyline points="25,160 65,145 105,153 145,132 185,148 225,126 265,140 305,122" stroke="rgba(59,130,246,.15)" stroke-width="8" fill="none"/>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag" style="background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.3);color:#93c5fd">📋 <span class="a">سلامة غذاء</span><span class="e">Food Safety</span></span>
+          <h3 class="a">خطة HACCP كاملة للمطبخ المركزي</h3><h3 class="e">Complete HACCP Plan — Central Kitchen</h3>
+          <p class="a">تصميم وتطبيق خطة HACCP شاملة من الصفر: تحليل المخاطر، تحديد نقاط التحكم الحرجة CCP، حدود حرجة، مراقبة وتسجيل، وإجراءات تصحيحية موثقة وفق ISO 22000.</p>
+          <p class="e">Designing & implementing a complete HACCP plan from scratch: hazard analysis, CCP identification, critical limits, monitoring & recording, and documented corrective actions per ISO 22000.</p>
+          <div class="pills"><span class="pill">HACCP</span><span class="pill">تحليل مخاطر</span><span class="pill">ISO 22000</span><span class="pill">توثيق</span></div>
+        </div>
+      </div>
+
+      <!-- P4: Packaging loss reduction -->
+      <div class="proj reveal">
+        <div class="proj-vis" style="background:linear-gradient(135deg,#0d0520,#100625)">
+          <svg viewBox="0 0 340 195" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <radialGradient id="pg4" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(139,92,246,.2)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+            <rect width="340" height="195" fill="url(#pg4)"/>
+            <!-- before: red cans -->
+            <rect x="20" y="68" width="26" height="32" rx="5" fill="rgba(244,63,94,.25)" stroke="rgba(244,63,94,.6)" stroke-width="1.2"/>
+            <text x="33" y="88" text-anchor="middle" font-size="11" fill="#fda4af">✗</text>
+            <rect x="56" y="65" width="26" height="32" rx="5" fill="rgba(244,63,94,.25)" stroke="rgba(244,63,94,.6)" stroke-width="1.2"/>
+            <text x="69" y="85" text-anchor="middle" font-size="11" fill="#fda4af">✗</text>
+            <rect x="92" y="68" width="26" height="32" rx="5" fill="rgba(244,63,94,.15)" stroke="rgba(244,63,94,.4)" stroke-width="1.2"/>
+            <text x="105" y="88" text-anchor="middle" font-size="11" fill="rgba(253,164,175,.5)">✗</text>
+            <!-- arrow with label -->
+            <line x1="138" y1="84" x2="174" y2="84" stroke="rgba(139,92,246,.7)" stroke-width="2"/>
+            <polygon points="174,79 184,84 174,89" fill="rgba(139,92,246,.8)"/>
+            <text x="156" y="77" text-anchor="middle" font-size="7.5" fill="#c4b5fd" font-weight="700" font-family="Cairo,sans-serif">تحسين</text>
+            <!-- after: green cans -->
+            <rect x="196" y="68" width="26" height="32" rx="5" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.7)" stroke-width="1.2"/>
+            <text x="209" y="88" text-anchor="middle" font-size="11" fill="#7dffc0">✓</text>
+            <rect x="232" y="65" width="26" height="32" rx="5" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.7)" stroke-width="1.2"/>
+            <text x="245" y="85" text-anchor="middle" font-size="11" fill="#7dffc0">✓</text>
+            <rect x="268" y="68" width="26" height="32" rx="5" fill="rgba(21,194,99,.3)" stroke="rgba(21,194,99,.7)" stroke-width="1.2"/>
+            <text x="281" y="88" text-anchor="middle" font-size="11" fill="#7dffc0">✓</text>
+            <rect x="304" y="70" width="26" height="32" rx="5" fill="rgba(21,194,99,.25)" stroke="rgba(21,194,99,.5)" stroke-width="1.2"/>
+            <text x="317" y="90" text-anchor="middle" font-size="11" fill="#7dffc0">✓</text>
+            <!-- comparison cards -->
+            <rect x="20" y="118" width="130" height="55" rx="10" fill="rgba(244,63,94,.1)" stroke="rgba(244,63,94,.3)" stroke-width="1"/>
+            <text x="85" y="136" text-anchor="middle" font-size="8" fill="#fda4af" font-weight="700" font-family="Cairo,sans-serif">قبل التحسين</text>
+            <text x="85" y="156" text-anchor="middle" font-size="20" fill="#f43f5e" font-weight="900" font-family="Poppins,sans-serif">12%</text>
+            <text x="85" y="168" text-anchor="middle" font-size="7" fill="rgba(253,164,175,.6)" font-family="Cairo,sans-serif">معدل الفقد</text>
+            <rect x="165" y="118" width="155" height="55" rx="10" fill="rgba(21,194,99,.1)" stroke="rgba(21,194,99,.3)" stroke-width="1"/>
+            <text x="242" y="136" text-anchor="middle" font-size="8" fill="#7dffc0" font-weight="700" font-family="Cairo,sans-serif">بعد التحسين</text>
+            <text x="242" y="156" text-anchor="middle" font-size="20" fill="#15c263" font-weight="900" font-family="Poppins,sans-serif">3%</text>
+            <text x="242" y="168" text-anchor="middle" font-size="7" fill="rgba(125,255,192,.6)" font-family="Cairo,sans-serif">معدل الفقد</text>
+          </svg>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag" style="background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.3);color:#c4b5fd">📦 <span class="a">تحسين إنتاج</span><span class="e">Production Improvement</span></span>
+          <h3 class="a">تقليل نسبة الفقد في علب التغليف — ماربيلا</h3><h3 class="e">Packaging Loss Reduction — Marbella</h3>
+          <p class="a">مشروع تحسين شامل لتقليل نسبة الفقد في علب التغليف بشركة ماربيلا للصناعات الغذائية. تحليل جذور المشكلة وتطبيق حلول عملية أدت إلى خفض معدل الفقد بشكل ملحوظ وتوفير في التكاليف.</p>
+          <p class="e">A comprehensive improvement project to reduce packaging loss at Marbella Food Industries. Root cause analysis & practical solutions led to a significant loss rate reduction and measurable cost savings.</p>
+          <div class="pills"><span class="pill">Root Cause Analysis</span><span class="pill">SPC</span><span class="pill">تحسين مستمر</span><span class="pill">تقليل هدر</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-sec reveal" id="exp">
+  <div class="con">
+    <div class="sec-tag"><span class="a">المسيرة المهنية</span><span class="e">Career Path</span></div>
+    <h2 class="a">الخبرات العملية</h2><h2 class="e">Work Experience</h2>
+    <p class="sec-sub a">رحلة احترافية متصاعدة في صناعات الغذاء والمشروبات</p>
+    <p class="sec-sub e">A growing professional journey across food & beverage industries</p>
+    <div class="exp-grid">
+      <div class="exp e1 reveal">
+        <div class="exp-top"><div class="exp-ico ei1">🍞</div><span class="exp-date">Jan 2025 – Jan 2026</span></div>
+        <h3 class="a">متخصص سلامة الغذاء</h3><h3 class="e">Food Safety Specialist</h3>
+        <div class="exp-co eg">ISL Catering Services · Cairo, Egypt</div>
+        <ul>
+          <li class="a">تطبيق خطط HACCP وأنظمة إدارة سلامة الغذاء عبر خطوط المطبخ المركزي والمخبوزات</li>
+          <li class="e">Implemented HACCP plans across central kitchen & bakery production lines</li>
+          <li class="a">إجراء تقييمات حسية ومخبرية: رطوبة، زيت القلي، مواد خام</li>
+          <li class="e">Performed sensory & lab evaluations: moisture, frying oil, raw materials</li>
+          <li class="a">المساهمة في تقليل معدلات رفض الدفعات وتحسين الاتساق</li>
+          <li class="e">Contributed to reducing batch rejection rates & improving consistency</li>
+        </ul>
+      </div>
+      <div class="exp e2 reveal">
+        <div class="exp-top"><div class="exp-ico ei2">🥤</div><span class="exp-date">Jun – Dec 2024</span></div>
+        <h3 class="a">مهندس جودة</h3><h3 class="e">Quality Engineer</h3>
+        <div class="exp-co eb">Aujan Coca-Cola (ACCBC) · Giza, Egypt</div>
+        <ul>
+          <li class="a">تطبيق GMP وHACCP عبر خطوط إنتاج العصائر والمشروبات</li>
+          <li class="e">Applied GMP & HACCP across juice and beverage production lines</li>
+          <li class="a">تطبيق SPC لمراقبة الأداء وتحديد الانحرافات مبكراً</li>
+          <li class="e">Implemented SPC tools for performance monitoring & early deviation detection</li>
+          <li class="a">مراقبة البريكس، اللزوجة، العمر الافتراضي ومواصفات التعبئة</li>
+          <li class="e">Monitored Brix, viscosity, shelf-life & packaging specifications</li>
+        </ul>
+      </div>
+      <div class="exp e3 reveal">
+        <div class="exp-top"><div class="exp-ico ei3">🏭</div><span class="exp-date">Jul – Sep 2023</span></div>
+        <h3 class="a">مهندس إنتاج (متدرب)</h3><h3 class="e">Production Engineer (Trainee)</h3>
+        <div class="exp-co ea">Marbella for Food Industries · Giza, Egypt</div>
+        <ul>
+          <li class="a">تحليل بيانات الإنتاج وإعداد تقارير الأداء اليومية والأسبوعية</li>
+          <li class="e">Analyzed production data & prepared daily/weekly performance reports</li>
+          <li class="a">مشروع تقليل الفقد في علب التغليف — خفض من 12% إلى 3%</li>
+          <li class="e">Packaging loss reduction project — reduced from 12% to 3%</li>
+        </ul>
+      </div>
+      <div class="exp e4 reveal">
+        <div class="exp-top"><div class="exp-ico ei4">🌾</div><span class="exp-date">Jul – Aug 2022</span></div>
+        <h3 class="a">متدرب مراقبة جودة</h3><h3 class="e">Quality Control Trainee</h3>
+        <div class="exp-co et">EBTC · Dokki, Giza, Egypt</div>
+        <ul>
+          <li class="a">فحص استلام القمح: الرطوبة، الشوائب، مطابقة المواصفات</li>
+          <li class="e">Wheat receiving QC: moisture, impurities & spec conformity</li>
+          <li class="a">مراقبة معاملات الطحن وجودة النشا والدقيق</li>
+          <li class="e">Monitored milling parameters & starch/flour quality</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="certs-sec reveal" id="certs">
+  <div class="con">
+    <div class="sec-tag"><span class="a">الشهادات</span><span class="e">Certifications</span></div>
+    <h2 class="a">الشهادات المعتمدة</h2><h2 class="e">Professional Certifications</h2>
+    <p class="sec-sub a">شهادات دولية ومحلية تعكس الالتزام بالتميز المهني</p>
+    <p class="sec-sub e">International & local certifications reflecting professional excellence</p>
+    <div class="cert-grid">
+      <div class="cert c1 reveal"><i>🏆</i><b>FSSC 22000 v6</b><span>Food Safety System Certification</span><small>Aug 2025</small></div>
+      <div class="cert c2 reveal"><i>🔬</i><b>HACCP & Root Cause Analysis</b><span>Implementation Certified</span><small>Nov 2025</small></div>
+      <div class="cert c3 reveal"><i>🛡️</i><b>ISO 45001:2018</b><span>Health & Safety Management</span><small>Aug 2025</small></div>
+      <div class="cert c4 reveal"><i>🌿</i><b>Integrated Pest Management</b><span>IPM – PCT101</span><small>Oct 2025</small></div>
+      <div class="cert c5 reveal"><i>🎓</i><b>Highfield Level 4</b><span>Food Safety Management for Manufacturing</span><small>Aug 2024</small></div>
+      <div class="cert c1 reveal"><i>✅</i><b>HACCP – Hazard Analysis CCP</b><span>EOS – Egyptian Org. for Standards</span><small>Oct 2023</small></div>
+      <div class="cert c2 reveal"><i>📋</i><b>PRPs – Prerequisite Programs</b><span>EOS</span><small>Oct 2023</small></div>
+      <div class="cert c3 reveal"><i>🌐</i><b>ISO 22000:2018</b><span>Food Safety Management System</span><small>Jun 2023</small></div>
+      <div class="cert c4 reveal"><i>⚙️</i><b>GMP – Good Manufacturing Practices</b><span>EOS</span><small>Mar 2022</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDU -->
+<section class="edu-sec reveal">
+  <div class="con">
+    <div class="sec-tag"><span class="a">التعليم واللغات</span><span class="e">Education & Languages</span></div>
+    <h2 class="a">الخلفية الأكاديمية</h2><h2 class="e">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div style="font-size:3rem;margin-bottom:1rem">🎓</div>
+        <h3 class="a">بكالوريوس العلوم الزراعية</h3><h3 class="e">Bachelor of Agricultural Sciences</h3>
+        <p class="a">تخصص: تكنولوجيا تصنيع الغذاء<br>كلية الزراعة – جامعة القاهرة</p>
+        <p class="e">Major: Food Processing Technology<br>Faculty of Agriculture – Cairo University</p>
+        <div class="edu-yr">🎓 Graduated: June 2023</div>
+      </div>
+      <div class="lang-card reveal">
+        <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1.2rem" class="a">اللغات</h3>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:1.2rem" class="e">Languages</h3>
+        <div class="lang">
+          <div class="lang-nm"><span class="a">العربية — اللغة الأم</span><span class="e">Arabic — Native</span><span style="color:var(--g);font-size:.8rem">Native</span></div>
+          <div class="bar"><div class="fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang" style="margin-top:1.2rem">
+          <div class="lang-nm"><span class="a">الإنجليزية</span><span class="e">English</span><span style="color:var(--b);font-size:.8rem">B1</span></div>
+          <div class="bar"><div class="fill" style="width:62%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec reveal" id="contact">
+  <div class="con">
+    <div class="sec-tag"><span class="a">تواصل معي</span><span class="e">Get In Touch</span></div>
+    <h2 class="a">جاهز لفرصة تضيف قيمة حقيقية</h2><h2 class="e">Ready for a Role That Creates Real Value</h2>
+    <p class="sec-sub a">متاح للفرص المهنية في المملكة العربية السعودية وخارجها</p>
+    <p class="sec-sub e">Available for professional opportunities in Saudi Arabia and beyond</p>
+    <div class="con-grid">
+      <a class="con-c" href="tel:+966510330283">
+        <div class="con-ico ci1">📞</div>
+        <div><div class="con-label">Phone</div><div class="con-val">+966 51 033 0283</div></div>
+      </a>
+      <a class="con-c" href="mailto:abdelzaher123zaher@gmail.com">
+        <div class="con-ico ci2">📧</div>
+        <div><div class="con-label">Email</div><div class="con-val" style="font-size:.78rem">abdelzaher123zaher@gmail.com</div></div>
+      </a>
+      <a class="con-c" href="https://linkedin.com/in/abdelzaher-khairy" target="_blank">
+        <div class="con-ico ci3">💼</div>
+        <div><div class="con-label">LinkedIn</div><div class="con-val">abdelzaher-khairy</div></div>
+      </a>
+      <div class="con-c">
+        <div class="con-ico ci4">📍</div>
+        <div><div class="con-label">Location</div>
+          <div class="con-val a">الأحساء، المنطقة الشرقية، السعودية</div>
+          <div class="con-val e">Al Ahsa, Eastern Province, Saudi Arabia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <b>Abdel Zaher Khairy</b>
+    <span class="a">متخصص جودة وسلامة الغذاء · 2026</span>
+    <span class="e">Food Quality & Safety Specialist · 2026</span>
+    <div class="ft-dots">
+      <i style="background:#15c263"></i><i style="background:#0ecfb8"></i>
+      <i style="background:#3b82f6"></i><i style="background:#8b5cf6"></i>
+      <i style="background:#f59e0b"></i>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Lang toggle ── */
+function setL(l){
+  const r=document.getElementById('R');
+  r.setAttribute('lang',l);r.setAttribute('dir',l==='ar'?'rtl':'ltr');
+  document.getElementById('bar').classList.toggle('on',l==='ar');
+  document.getElementById('ben').classList.toggle('on',l==='en');
+}
+
+/* ── Custom cursor ── */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,cx=0,cy=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function loop(){
+  cx+=(mx-cx)*.18;cy+=(my-cy)*.18;
+  cur.style.transform=`translate(${mx-6}px,${my-6}px)`;
+  cur2.style.transform=`translate(${cx-18}px,${cy-18}px)`;
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,.btn,.lb,.sk,.lab,.proj,.exp,.cert,.con-c').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform+=' scale(2)';cur.style.background='var(--t)';});
+  el.addEventListener('mouseleave',()=>{cur.style.background='var(--g)';});
+});
+
+/* ── Canvas particle field ── */
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+let W,H,pts=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+resize();window.addEventListener('resize',()=>{resize();init();});
+const COLORS=['rgba(21,194,99,','rgba(14,207,184,','rgba(59,130,246,','rgba(139,92,246,','rgba(245,158,11,'];
+function init(){
+  pts=[];
+  for(let i=0;i<55;i++){
+    pts.push({x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,
+      r:Math.random()*1.8+.5,
+      c:COLORS[Math.floor(Math.random()*COLORS.length)],
+      o:Math.random()*.5+.15})
+  }
+}
+init();
+function drawCanvas(){
+  ctx.clearRect(0,0,W,H);
+  // draw connections
+  for(let i=0;i<pts.length;i++){
+    for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120){
+        ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle=`rgba(21,194,99,${(.1*(1-d/120)).toFixed(3)})`;
+        ctx.lineWidth=.6;ctx.stroke();
+      }
+    }
+  }
+  // draw dots
+  pts.forEach(p=>{
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.c+p.o+')';ctx.fill();
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+  });
+  requestAnimationFrame(drawCanvas);
+}
+drawCanvas();
+
+/* ── Card particles ── */
+const cp=document.getElementById('cparts');
+if(cp){
+  for(let i=0;i<18;i++){
+    const d=document.createElement('div');d.className='cp';
+    const c=COLORS[i%COLORS.length];
+    const s=2+Math.random()*4;
+    d.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${s}px;height:${s}px;background:${c+(.4+Math.random()*.4)+')'};box-shadow:0 0 ${s*2}px ${c+'.5)'};animation:orbdrift ${5+Math.random()*8}s ease-in-out infinite;animation-delay:${Math.random()*6}s`;
+    cp.appendChild(d);
+  }
+}
+
+/* ── Counter animation ── */
+function counter(el,target,suffix,dur){
+  let start=null;
+  function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/dur,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(ease*target)+(p>=1?suffix:'');
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+let counted=false;
+const statsObs=new IntersectionObserver(entries=>{
+  if(entries.some(e=>e.isIntersecting)&&!counted){
+    counted=true;
+    setTimeout(()=>counter(document.getElementById('s1'),3,'+',1600),0);
+    setTimeout(()=>counter(document.getElementById('s2'),8,'',1800),200);
+    setTimeout(()=>counter(document.getElementById('s3'),4,'',1400),400);
+  }
+},{threshold:.5});
+const sc=document.querySelector('.stats');if(sc)statsObs.observe(sc);
+
+/* ── Scroll reveal ── */
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+/* ── Mouse parallax on orbs ── */
+document.addEventListener('mousemove',e=>{
+  const px=(e.clientX/window.innerWidth-.5)*2;
+  const py=(e.clientY/window.innerHeight-.5)*2;
+  document.querySelectorAll('.orb').forEach((o,i)=>{
+    const f=(i+1)*12;
+    o.style.transform=`translate(${px*f}px,${py*f}px)`;
+  });
+});
+</script>
+</body>
+</html>
